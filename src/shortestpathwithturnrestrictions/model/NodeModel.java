@@ -14,7 +14,17 @@ public class NodeModel {
     private double latitude;
     private double longitude;
     private boolean keep=false;
+    private Cost costObj;
 
+    public Cost getCostObj() {
+        return costObj;
+    }
+
+    public void setCostObj(Cost costObj) {
+        this.costObj = costObj;
+    }
+    
+    
     public boolean isKeep() {
         return keep;
     }

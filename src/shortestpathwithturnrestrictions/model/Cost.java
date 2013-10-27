@@ -14,6 +14,18 @@ public class Cost {
  //   private double variableCost=0.0;
 //    private boolean restricted = false;
 
+    
+    public Cost(double fixedCost){
+    
+        this.fizedCost = fixedCost;
+    
+    }
+    
+    public Cost(double fixedCost, double variableCost, boolean restricted){
+    
+    
+    }
+    
     public double getFizedCost() {
         return fizedCost;
     }

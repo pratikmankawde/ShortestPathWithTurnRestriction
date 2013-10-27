@@ -4,16 +4,14 @@
  */
 package shortestpathwithturnrestrictions.model;
 
-/*
+/**
+ *
  * @author PprrATeekK
  */
-public class Turn {
- 
-    RoadFragment incomingRoadFragment;
-    RoadFragment outgoingRoadFragment;
-    NodeModel incomingNode;
-    NodeModel outgoingNode;
-    Cost turnCost;
+public class Constants {
+    
+   public static int scaler = 1000;
+   public static double radiusOfEarth = 6371;
     
     
 }

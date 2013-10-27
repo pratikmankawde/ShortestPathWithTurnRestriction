@@ -19,14 +19,14 @@ public class RoadFragment {
     double lenght;
     double width;
     long id;
-    Cost costOfThisRoadFragment = new Cost();
+    Cost costOfRoadFragment = new Cost(0.0);
 
-    public Cost getCostOfThisRoadFragment() {
-        return costOfThisRoadFragment;
+    public Cost getCostObj() {
+        return costOfRoadFragment;
     }
 
-    public void setCostOfThisRoadFragment(Cost costOfThisRoadFragment) {
-        this.costOfThisRoadFragment = costOfThisRoadFragment;
+    public void setCostObj(Cost costOfThisRoadFragment) {
+        this.costOfRoadFragment = costOfThisRoadFragment;
     }
     
     public long getId() {

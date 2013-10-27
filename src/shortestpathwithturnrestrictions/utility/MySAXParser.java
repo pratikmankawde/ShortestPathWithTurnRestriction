@@ -14,7 +14,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.Hashtable;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -27,7 +26,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import shortestpathwithturnrestrictions.model.GraphModel;
 import shortestpathwithturnrestrictions.model.NodeModel;
 import shortestpathwithturnrestrictions.model.RoadFragment;
-import shortestpathwithturnrestrictions.view.DrawXY;
+import shortestpathwithturnrestrictions.view.DrawMap;
 
 public class MySAXParser extends DefaultHandler {
 
@@ -110,20 +109,6 @@ public class MySAXParser extends DefaultHandler {
     public void characters(char[] ac, int i, int j) throws SAXException {
     }
 
-    public void normalize() {
-
-        //     lon/=nodes.size();
-        //    lat/=nodes.size();
-
-        double normalizingFactor = Math.sqrt(minLon * minLon + minLat * minLat);
-        for (RoadFragment road : roads) {
-            for (NodeModel node : road.getPoints()) {
-                node.setLatitude(node.getLatitude() - minLat);//normalizingFactor);
-                node.setLongitude(node.getLongitude() - minLon);//normalizingFactor);
-            }
-        }
-
-    }
 
     public void removeRedundantVertises() {
 
@@ -137,7 +122,7 @@ public class MySAXParser extends DefaultHandler {
                     if (!node.isKeep()) {
                         nodes.remove(node.getId());
 
-                        //                System.out.println("Node Removed:"+node.getId());
+                        //System.out.println("Node Removed:"+node.getId());
                     }
                 } else {
                     node.setKeep(true);
@@ -202,24 +187,6 @@ public class MySAXParser extends DefaultHandler {
         }
     }
 
-    public void setCostOfRoad() {
-
-        double prevLat = roads.get(0).getPoints().get(0).getLatitude();
-        double prevLon = roads.get(0).getPoints().get(0).getLongitude();
-
-        for (RoadFragment road : roads) {
-
-            for (NodeModel node : road.getPoints()) {
-                road.getCostOfThisRoadFragment().setFizedCost(
-                        road.getCostOfThisRoadFragment().getFizedCost()
-                        + Math.sqrt(Math.pow((node.getLatitude() - prevLat), 2.0)
-                        + Math.pow((node.getLongitude() - prevLon), 2.0)));
-                prevLat = node.getLatitude();
-                prevLon = node.getLongitude();
-            }
-            //  System.out.println(road.getCostOfThisRoadFragment().getFizedCost());
-        }
-    }
 
     public ArrayList<RoadFragment> getRoads() {
         return roads;
@@ -239,15 +206,15 @@ public class MySAXParser extends DefaultHandler {
 
     public static void main(String[] args) {
 
-        File fl = new File("medium.osm");
+        File fl = new File("very small map.osm");
         try {
             FileInputStream fis = new FileInputStream(fl);
             MySAXParser msaxParcer = new MySAXParser(fis);
 
-            msaxParcer.setCostOfRoad();
-      //      msaxParcer.removeRedundantVertises();
+            new CostCalculations().setCosts(msaxParcer.getRoads());
+            msaxParcer.removeRedundantVertises();
             msaxParcer.setIntRoadCoord();
-            DrawXY draw = new DrawXY(msaxParcer.getRoads());
+            DrawMap draw = new DrawMap(msaxParcer.getRoads());
             draw.draw();
             GraphModel gModel = new GraphModel();
             gModel.initAdjMat(msaxParcer.getNodes().size());
