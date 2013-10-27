@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.3.1 (24948 thorn-01.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <bounds minlat="12.8858000" minlon="77.6435000" maxlat="12.8924000" maxlon="77.6521000"/>
+ <node id="266864582" visible="true" version="3" changeset="17318776" timestamp="2013-08-12T15:16:07Z" user="Sakthi20" uid="1587943" lat="12.8888172" lon="77.6520045"/>
+ <node id="266865256" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:07Z" user="Praveen" uid="35811" lat="12.8891011" lon="77.6504463"/>
+ <node id="266865260" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:07Z" user="Praveen" uid="35811" lat="12.8898123" lon="77.6485924"/>
+ <node id="266865261" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:07Z" user="Praveen" uid="35811" lat="12.8901469" lon="77.6469444"/>
+ <node id="266865262" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:07Z" user="Praveen" uid="35811" lat="12.8902055" lon="77.6466268"/>
+ <node id="266865263" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:07Z" user="Praveen" uid="35811" lat="12.8902808" lon="77.6462149"/>
+ <node id="266865264" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:07Z" user="Praveen" uid="35811" lat="12.8904816" lon="77.6451420"/>
+ <node id="266865257" visible="true" version="6" changeset="9468275" timestamp="2011-10-04T10:55:48Z" user="Arthi" uid="450011" lat="12.8893778" lon="77.6495247"/>
+ <node id="266865265" visible="true" version="3" changeset="18092430" timestamp="2013-09-29T13:07:17Z" user="Prasanth Rajan" uid="634020" lat="12.8906504" lon="77.6439893"/>
+ <node id="266865259" visible="true" version="3" changeset="10099109" timestamp="2011-12-12T13:39:52Z" user="Nand Kishore Gupta" uid="178915" lat="12.8895517" lon="77.6491545"/>
+ <node id="1454746773" visible="true" version="1" changeset="9468275" timestamp="2011-10-04T10:55:45Z" user="Arthi" uid="450011" lat="12.8896232" lon="77.6498163"/>
+ <node id="1454746776" visible="true" version="1" changeset="9468275" timestamp="2011-10-04T10:55:46Z" user="Arthi" uid="450011" lat="12.8896491" lon="77.6496743"/>
+ <node id="1454746778" visible="true" version="1" changeset="9468275" timestamp="2011-10-04T10:55:46Z" user="Arthi" uid="450011" lat="12.8897715" lon="77.6498449"/>
+ <node id="1454746780" visible="true" version="1" changeset="9468275" timestamp="2011-10-04T10:55:46Z" user="Arthi" uid="450011" lat="12.8897975" lon="77.6497029"/>
+ <node id="1417340858" visible="true" version="2" changeset="17318776" timestamp="2013-08-12T15:16:06Z" user="Sakthi20" uid="1587943" lat="12.8922724" lon="77.6446716"/>
+ <node id="1417340856" visible="true" version="1" changeset="9159878" timestamp="2011-08-29T17:30:28Z" user="Walter Schlögl" uid="78656" lat="12.8919873" lon="77.6440766"/>
+ <node id="1417340857" visible="true" version="1" changeset="9159878" timestamp="2011-08-29T17:30:28Z" user="Walter Schlögl" uid="78656" lat="12.8920767" lon="77.6441626"/>
+ <node id="1417340852" visible="true" version="2" changeset="18092430" timestamp="2013-09-29T13:07:17Z" user="Prasanth Rajan" uid="634020" lat="12.8905501" lon="77.6437280"/>
+ <node id="1417340854" visible="true" version="2" changeset="18092430" timestamp="2013-09-29T13:07:17Z" user="Prasanth Rajan" uid="634020" lat="12.8914141" lon="77.6438592"/>
+ <node id="1468138617" visible="true" version="1" changeset="9563264" timestamp="2011-10-15T12:54:33Z" user="shijo" uid="536089" lat="12.8921840" lon="77.6442830">
+  <tag k="amenity" v="atm"/>
+  <tag k="name" v="Andhra Bank Atm"/>
+ </node>
+ <node id="1542410645" visible="true" version="1" changeset="10099109" timestamp="2011-12-12T13:39:51Z" user="Nand Kishore Gupta" uid="178915" lat="12.8879303" lon="77.6494629"/>
+ <node id="1542410652" visible="true" version="1" changeset="10099109" timestamp="2011-12-12T13:39:51Z" user="Nand Kishore Gupta" uid="178915" lat="12.8885997" lon="77.6490874"/>
+ <node id="1542410657" visible="true" version="1" changeset="10099109" timestamp="2011-12-12T13:39:51Z" user="Nand Kishore Gupta" uid="178915" lat="12.8884219" lon="77.6491035"/>
+ <node id="1542410665" visible="true" version="1" changeset="10099109" timestamp="2011-12-12T13:39:51Z" user="Nand Kishore Gupta" uid="178915" lat="12.8877886" lon="77.6495656"/>
+ <node id="1542410670" visible="true" version="1" changeset="10099109" timestamp="2011-12-12T13:39:51Z" user="Nand Kishore Gupta" uid="178915" lat="12.8881866" lon="77.6492376"/>
+ <node id="1542410684" visible="true" version="1" changeset="10099109" timestamp="2011-12-12T13:39:51Z" user="Nand Kishore Gupta" uid="178915" lat="12.8877159" lon="77.6495917"/>
+ <node id="2057506975" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8911698" lon="77.6491329"/>
+ <node id="2057506976" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8908973" lon="77.6490968"/>
+ <node id="2057506982" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8912561" lon="77.6491731"/>
+ <node id="2057506984" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8915698" lon="77.6493528"/>
+ <node id="2057506993" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8898180" lon="77.6497123"/>
+ <node id="2057506995" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8910783" lon="77.6491061"/>
+ <node id="2057506998" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8900811" lon="77.6495968"/>
+ <node id="2057507002" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8909870" lon="77.6490895"/>
+ <node id="2057507007" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8905815" lon="77.6492563"/>
+ <node id="2057507012" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8920352" lon="77.6496318"/>
+ <node id="2057507016" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8899540" lon="77.6496693"/>
+ <node id="2057507025" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8907907" lon="77.6491329"/>
+ <node id="2057507026" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8898782" lon="77.6496989"/>
+ <node id="2057507037" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8923359" lon="77.6497981"/>
+ <node id="2057507053" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8903593" lon="77.6494172"/>
+ <node id="2415950616" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:37Z" user="Sakthi20" uid="1587943" lat="12.8860109" lon="77.6482276"/>
+ <node id="2415950617" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:38Z" user="Sakthi20" uid="1587943" lat="12.8861327" lon="77.6494255"/>
+ <node id="2415950618" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:38Z" user="Sakthi20" uid="1587943" lat="12.8864502" lon="77.6482032"/>
+ <node id="2415950625" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:38Z" user="Sakthi20" uid="1587943" lat="12.8869627" lon="77.6480811"/>
+ <node id="2415950629" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:38Z" user="Sakthi20" uid="1587943" lat="12.8872556" lon="77.6508145"/>
+ <node id="2415950632" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:38Z" user="Sakthi20" uid="1587943" lat="12.8877437" lon="77.6479591"/>
+ <node id="2415950635" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:38Z" user="Sakthi20" uid="1587943" lat="12.8883294" lon="77.6480567"/>
+ <node id="2415950640" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:38Z" user="Sakthi20" uid="1587943" lat="12.8888175" lon="77.6482520"/>
+ <node id="2415950661" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:39Z" user="Sakthi20" uid="1587943" lat="12.8917999" lon="77.6448110"/>
+ <node id="2415950662" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:39Z" user="Sakthi20" uid="1587943" lat="12.8920467" lon="77.6447573"/>
+ <node id="2057506980" visible="true" version="2" changeset="17318776" timestamp="2013-08-12T15:16:07Z" user="Sakthi20" uid="1587943" lat="12.8893404" lon="77.6496494"/>
+ <node id="2415950651" visible="true" version="3" changeset="18092430" timestamp="2013-09-29T13:07:17Z" user="Prasanth Rajan" uid="634020" lat="12.8905974" lon="77.6446471"/>
+ <node id="264129256" visible="true" version="11" changeset="707626" timestamp="2008-11-07T14:29:06Z" user="Praveen" uid="35811" lat="12.8896956" lon="77.6564862"/>
+ <node id="264129258" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:06Z" user="Praveen" uid="35811" lat="12.8895979" lon="77.6562746"/>
+ <node id="264129397" visible="true" version="9" changeset="707626" timestamp="2008-11-07T14:28:49Z" user="Praveen" uid="35811" lat="12.8943054" lon="77.6572372"/>
+ <node id="266864574" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:06Z" user="Praveen" uid="35811" lat="12.8896031" lon="77.6559309"/>
+ <node id="266864575" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:06Z" user="Praveen" uid="35811" lat="12.8896617" lon="77.6557592"/>
+ <node id="266864576" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:06Z" user="Praveen" uid="35811" lat="12.8897286" lon="77.6555103"/>
+ <node id="266864577" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:06Z" user="Praveen" uid="35811" lat="12.8896700" lon="77.6553387"/>
+ <node id="266864578" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:06Z" user="Praveen" uid="35811" lat="12.8894776" lon="77.6550382"/>
+ <node id="266864579" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:06Z" user="Praveen" uid="35811" lat="12.8892517" lon="77.6544632"/>
+ <node id="266864580" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:06Z" user="Praveen" uid="35811" lat="12.8889923" lon="77.6532787"/>
+ <node id="266864581" visible="true" version="2" changeset="707626" timestamp="2008-11-07T14:29:06Z" user="Praveen" uid="35811" lat="12.8887497" lon="77.6524204"/>
+ <node id="266865269" visible="true" version="3" changeset="17007399" timestamp="2013-07-19T05:49:07Z" user="Prasanth Rajan" uid="634020" lat="12.8893356" lon="77.6403000"/>
+ <node id="306623857" visible="true" version="2" changeset="535051" timestamp="2008-10-23T17:57:47Z" user="Praveen" uid="35811" lat="12.9013088" lon="77.6455977"/>
+ <node id="618250882" visible="true" version="3" changeset="17007399" timestamp="2013-07-19T05:49:08Z" user="Prasanth Rajan" uid="634020" lat="12.8892330" lon="77.6400748"/>
+ <node id="1417340855" visible="true" version="2" changeset="17007399" timestamp="2013-07-19T05:49:08Z" user="Prasanth Rajan" uid="634020" lat="12.8919140" lon="77.6384171"/>
+ <node id="1417340860" visible="true" version="1" changeset="9159878" timestamp="2011-08-29T17:30:28Z" user="Walter Schlögl" uid="78656" lat="12.8925790" lon="77.6412461"/>
+ <node id="1417340861" visible="true" version="1" changeset="9159878" timestamp="2011-08-29T17:30:28Z" user="Walter Schlögl" uid="78656" lat="12.8928574" lon="77.6418357"/>
+ <node id="1417340862" visible="true" version="1" changeset="9159878" timestamp="2011-08-29T17:30:28Z" user="Walter Schlögl" uid="78656" lat="12.8929427" lon="77.6424069"/>
+ <node id="1417340863" visible="true" version="1" changeset="9159878" timestamp="2011-08-29T17:30:28Z" user="Walter Schlögl" uid="78656" lat="12.8929831" lon="77.6442119"/>
+ <node id="1417340864" visible="true" version="2" changeset="18092430" timestamp="2013-09-29T13:07:17Z" user="Prasanth Rajan" uid="634020" lat="12.8932214" lon="77.6447670"/>
+ <node id="1417340868" visible="true" version="2" changeset="18092430" timestamp="2013-09-29T13:07:17Z" user="Prasanth Rajan" uid="634020" lat="12.8941356" lon="77.6449007"/>
+ <node id="1417340917" visible="true" version="2" changeset="18092430" timestamp="2013-09-29T13:07:17Z" user="Prasanth Rajan" uid="634020" lat="12.8959471" lon="77.6453300"/>
+ <node id="1417340955" visible="true" version="2" changeset="18092430" timestamp="2013-09-29T13:07:17Z" user="Prasanth Rajan" uid="634020" lat="12.8969514" lon="77.6454485"/>
+ <node id="1417340978" visible="true" version="2" changeset="18092430" timestamp="2013-09-29T13:07:17Z" user="Prasanth Rajan" uid="634020" lat="12.8973743" lon="77.6453835"/>
+ <node id="1417340988" visible="true" version="3" changeset="18092430" timestamp="2013-09-29T13:07:17Z" user="Prasanth Rajan" uid="634020" lat="12.8976216" lon="77.6453172"/>
+ <node id="1417341003" visible="true" version="2" changeset="9160867" timestamp="2011-08-29T19:10:01Z" user="Walter Schlögl" uid="78656" lat="12.8981926" lon="77.6451550"/>
+ <node id="1417341007" visible="true" version="1" changeset="9159878" timestamp="2011-08-29T17:30:34Z" user="Walter Schlögl" uid="78656" lat="12.8988093" lon="77.6450074"/>
+ <node id="1417443275" visible="true" version="1" changeset="9160867" timestamp="2011-08-29T19:09:14Z" user="Walter Schlögl" uid="78656" lat="12.8979081" lon="77.6452316"/>
+ <node id="1417443282" visible="true" version="1" changeset="9160867" timestamp="2011-08-29T19:09:14Z" user="Walter Schlögl" uid="78656" lat="12.8985240" lon="77.6450574"/>
+ <node id="1417443289" visible="true" version="1" changeset="9160867" timestamp="2011-08-29T19:09:15Z" user="Walter Schlögl" uid="78656" lat="12.8990447" lon="77.6450297"/>
+ <node id="1417443295" visible="true" version="1" changeset="9160867" timestamp="2011-08-29T19:09:15Z" user="Walter Schlögl" uid="78656" lat="12.8992188" lon="77.6450903"/>
+ <node id="1417443309" visible="true" version="1" changeset="9160867" timestamp="2011-08-29T19:09:16Z" user="Walter Schlögl" uid="78656" lat="12.9000518" lon="77.6454347"/>
+ <node id="1417443312" visible="true" version="1" changeset="9160867" timestamp="2011-08-29T19:09:16Z" user="Walter Schlögl" uid="78656" lat="12.9002872" lon="77.6454733"/>
+ <node id="1471802095" visible="true" version="1" changeset="9588685" timestamp="2011-10-18T07:32:27Z" user="Lakshmi" uid="535849" lat="12.8841235" lon="77.6492964"/>
+ <node id="1471802098" visible="true" version="5" changeset="17318776" timestamp="2013-08-12T15:16:06Z" user="Sakthi20" uid="1587943" lat="12.8833314" lon="77.6437157"/>
+ <node id="1542410660" visible="true" version="1" changeset="10099109" timestamp="2011-12-12T13:39:51Z" user="Nand Kishore Gupta" uid="178915" lat="12.8852634" lon="77.6493342"/>
+ <node id="1542410675" visible="true" version="1" changeset="10099109" timestamp="2011-12-12T13:39:51Z" user="Nand Kishore Gupta" uid="178915" lat="12.8847823" lon="77.6492912"/>
+ <node id="1542410680" visible="true" version="1" changeset="10099109" timestamp="2011-12-12T13:39:51Z" user="Nand Kishore Gupta" uid="178915" lat="12.8844058" lon="77.6492805"/>
+ <node id="2057506986" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8943256" lon="77.6546502"/>
+ <node id="2057506987" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8927464" lon="77.6500261"/>
+ <node id="2057506989" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8930732" lon="77.6502058"/>
+ <node id="2057506991" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8946210" lon="77.6525930"/>
+ <node id="2057506996" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8932013" lon="77.6502889"/>
+ <node id="2057507000" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8945871" lon="77.6525044"/>
+ <node id="2057507003" visible="true" version="2" changeset="17318776" timestamp="2013-08-12T15:16:07Z" user="Sakthi20" uid="1587943" lat="12.8946263" lon="77.6533627"/>
+ <node id="2057507005" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8932824" lon="77.6503614"/>
+ <node id="2057507009" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8933974" lon="77.6505277"/>
+ <node id="2057507010" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8939517" lon="77.6554361"/>
+ <node id="2057507014" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8938236" lon="77.6562944"/>
+ <node id="2057507017" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8946550" lon="77.6528800"/>
+ <node id="2057507021" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8938367" lon="77.6565492"/>
+ <node id="2057507023" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8938184" lon="77.6564419"/>
+ <node id="2057507028" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:42Z" user="sujandeb" uid="145671" lat="12.8945923" lon="77.6536766"/>
+ <node id="2057507030" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8939831" lon="77.6553073"/>
+ <node id="2057507032" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8938707" lon="77.6566377"/>
+ <node id="2057507033" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8940511" lon="77.6551384"/>
+ <node id="2057507035" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8942262" lon="77.6548460"/>
+ <node id="2057507039" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8925058" lon="77.6498973"/>
+ <node id="2057507041" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8943988" lon="77.6521718"/>
+ <node id="2057507042" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8936929" lon="77.6509997"/>
+ <node id="2057507044" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8941729" lon="77.6517801"/>
+ <node id="2057507046" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8939883" lon="77.6568443"/>
+ <node id="2057507051" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8940945" lon="77.6570104"/>
+ <node id="2057507055" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8946446" lon="77.6527029"/>
+ <node id="2057507056" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8938393" lon="77.6560745"/>
+ <node id="2057507058" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8941060" lon="77.6550472"/>
+ <node id="2057507060" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8940145" lon="77.6552135"/>
+ <node id="2057507062" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8945321" lon="77.6540333"/>
+ <node id="2057507064" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8945609" lon="77.6538858"/>
+ <node id="2057507065" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8943988" lon="77.6544812"/>
+ <node id="2057507067" visible="true" version="1" changeset="14211172" timestamp="2012-12-09T11:27:43Z" user="sujandeb" uid="145671" lat="12.8944694" lon="77.6542720"/>
+ <node id="2127279506" visible="true" version="1" changeset="14779054" timestamp="2013-01-25T10:35:29Z" user="sujandeb" uid="145671" lat="12.8935378" lon="77.6507520"/>
+ <node id="2415950592" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:37Z" user="Sakthi20" uid="1587943" lat="12.8833996" lon="77.6509121"/>
+ <node id="2415950595" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:37Z" user="Sakthi20" uid="1587943" lat="12.8839853" lon="77.6444936"/>
+ <node id="2415950597" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:37Z" user="Sakthi20" uid="1587943" lat="12.8843758" lon="77.6447621"/>
+ <node id="2415950606" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:37Z" user="Sakthi20" uid="1587943" lat="12.8850103" lon="77.6451770"/>
+ <node id="2415950609" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:37Z" user="Sakthi20" uid="1587943" lat="12.8853276" lon="77.6459579"/>
+ <node id="2415950611" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:37Z" user="Sakthi20" uid="1587943" lat="12.8854984" lon="77.6466412"/>
+ <node id="2415950613" visible="true" version="1" changeset="17316949" timestamp="2013-08-12T12:54:37Z" user="Sakthi20" uid="1587943" lat="12.8856204" lon="77.6475930"/>
+ <way id="24348100" visible="true" version="12" changeset="18092430" timestamp="2013-09-29T13:07:18Z" user="Prasanth Rajan" uid="634020">
+  <nd ref="264129256"/>
+  <nd ref="264129258"/>
+  <nd ref="266864574"/>
+  <nd ref="266864575"/>
+  <nd ref="266864576"/>
+  <nd ref="266864577"/>
+  <nd ref="266864578"/>
+  <nd ref="266864579"/>
+  <nd ref="266864580"/>
+  <nd ref="266864581"/>
+  <nd ref="266864582"/>
+  <nd ref="266865256"/>
+  <nd ref="2057506980"/>
+  <nd ref="266865257"/>
+  <nd ref="266865259"/>
+  <nd ref="266865260"/>
+  <nd ref="266865261"/>
+  <nd ref="266865262"/>
+  <nd ref="266865263"/>
+  <nd ref="266865264"/>
+  <nd ref="2415950651"/>
+  <nd ref="266865265"/>
+  <nd ref="1417340852"/>
+  <nd ref="266865269"/>
+  <nd ref="618250882"/>
+  <tag k="highway" v="secondary"/>
+  <tag k="name" v="Kudlu Road"/>
+ </way>
+ <way id="128211148" visible="true" version="3" changeset="17318776" timestamp="2013-08-12T15:16:04Z" user="Sakthi20" uid="1587943">
+  <nd ref="1417340852"/>
+  <nd ref="1417340854"/>
+  <nd ref="1417340856"/>
+  <nd ref="1417340857"/>
+  <nd ref="1417340858"/>
+  <nd ref="1417340864"/>
+  <nd ref="1417340868"/>
+  <nd ref="1417340917"/>
+  <nd ref="1417340955"/>
+  <nd ref="1417340978"/>
+  <nd ref="1417340988"/>
+  <nd ref="1417443275"/>
+  <nd ref="1417341003"/>
+  <nd ref="1417443282"/>
+  <nd ref="1417341007"/>
+  <nd ref="1417443289"/>
+  <nd ref="1417443295"/>
+  <nd ref="1417443309"/>
+  <nd ref="1417443312"/>
+  <nd ref="306623857"/>
+  <tag k="highway" v="tertiary"/>
+ </way>
+ <way id="128211176" visible="true" version="1" changeset="9159878" timestamp="2011-08-29T17:30:43Z" user="Walter Schlögl" uid="78656">
+  <nd ref="1417340857"/>
+  <nd ref="1417340863"/>
+  <nd ref="1417340862"/>
+  <nd ref="1417340861"/>
+  <nd ref="1417340860"/>
+  <nd ref="1417340855"/>
+  <tag k="highway" v="residential"/>
+ </way>
+ <way id="132202957" visible="true" version="1" changeset="9468275" timestamp="2011-10-04T10:55:46Z" user="Arthi" uid="450011">
+  <nd ref="1454746780"/>
+  <nd ref="1454746778"/>
+  <nd ref="1454746773"/>
+  <nd ref="1454746776"/>
+  <nd ref="1454746780"/>
+  <tag k="building" v="yes"/>
+  <tag k="name" v="BBMP Ward Office - Singasandra"/>
+ </way>
+ <way id="140872200" visible="true" version="3" changeset="12692657" timestamp="2012-08-11T15:43:38Z" user="docaneesh" uid="492742">
+  <nd ref="266865259"/>
+  <nd ref="1542410652"/>
+  <nd ref="1542410657"/>
+  <nd ref="1542410670"/>
+  <nd ref="1542410645"/>
+  <nd ref="1542410665"/>
+  <nd ref="1542410684"/>
+  <nd ref="1542410660"/>
+  <nd ref="1542410675"/>
+  <nd ref="1542410680"/>
+  <nd ref="1471802095"/>
+  <tag k="highway" v="residential"/>
+ </way>
+ <way id="195278910" visible="true" version="4" changeset="17318776" timestamp="2013-08-12T15:16:05Z" user="Sakthi20" uid="1587943">
+  <nd ref="2057506980"/>
+  <nd ref="2057506993"/>
+  <nd ref="2057507026"/>
+  <nd ref="2057507016"/>
+  <nd ref="2057506998"/>
+  <nd ref="2057507053"/>
+  <nd ref="2057507007"/>
+  <nd ref="2057507025"/>
+  <nd ref="2057506976"/>
+  <nd ref="2057507002"/>
+  <nd ref="2057506995"/>
+  <nd ref="2057506975"/>
+  <nd ref="2057506982"/>
+  <nd ref="2057506984"/>
+  <nd ref="2057507012"/>
+  <nd ref="2057507037"/>
+  <nd ref="2057507039"/>
+  <nd ref="2057506987"/>
+  <nd ref="2057506989"/>
+  <nd ref="2057506996"/>
+  <nd ref="2057507005"/>
+  <nd ref="2057507009"/>
+  <nd ref="2127279506"/>
+  <nd ref="2057507042"/>
+  <nd ref="2057507044"/>
+  <nd ref="2057507041"/>
+  <nd ref="2057507000"/>
+  <nd ref="2057506991"/>
+  <nd ref="2057507055"/>
+  <nd ref="2057507017"/>
+  <nd ref="2057507003"/>
+  <nd ref="2057507028"/>
+  <nd ref="2057507064"/>
+  <nd ref="2057507062"/>
+  <nd ref="2057507067"/>
+  <nd ref="2057507065"/>
+  <nd ref="2057506986"/>
+  <nd ref="2057507035"/>
+  <nd ref="2057507058"/>
+  <nd ref="2057507033"/>
+  <nd ref="2057507060"/>
+  <nd ref="2057507030"/>
+  <nd ref="2057507010"/>
+  <nd ref="2057507056"/>
+  <nd ref="2057507014"/>
+  <nd ref="2057507023"/>
+  <nd ref="2057507021"/>
+  <nd ref="2057507032"/>
+  <nd ref="2057507046"/>
+  <nd ref="2057507051"/>
+  <nd ref="264129397"/>
+  <tag k="highway" v="secondary"/>
+ </way>
+ <way id="233244360" visible="true" version="2" changeset="17318776" timestamp="2013-08-12T15:16:03Z" user="Sakthi20" uid="1587943">
+  <nd ref="1471802098"/>
+  <nd ref="2415950595"/>
+  <nd ref="2415950597"/>
+  <nd ref="2415950606"/>
+  <nd ref="2415950609"/>
+  <nd ref="2415950611"/>
+  <nd ref="2415950613"/>
+  <nd ref="2415950616"/>
+  <nd ref="2415950618"/>
+  <nd ref="2415950625"/>
+  <nd ref="2415950632"/>
+  <nd ref="2415950635"/>
+  <nd ref="2415950640"/>
+  <nd ref="266865259"/>
+  <tag k="highway" v="residential"/>
+ </way>
+ <way id="233244397" visible="true" version="2" changeset="17318776" timestamp="2013-08-12T15:16:03Z" user="Sakthi20" uid="1587943">
+  <nd ref="2057507003"/>
+  <nd ref="266864582"/>
+  <tag k="highway" v="residential"/>
+ </way>
+ <way id="233244398" visible="true" version="2" changeset="17318776" timestamp="2013-08-12T15:16:03Z" user="Sakthi20" uid="1587943">
+  <nd ref="2415950616"/>
+  <nd ref="2415950617"/>
+  <tag k="highway" v="residential"/>
+ </way>
+ <way id="233244467" visible="true" version="2" changeset="17318776" timestamp="2013-08-12T15:16:04Z" user="Sakthi20" uid="1587943">
+  <nd ref="2057506980"/>
+  <nd ref="2415950629"/>
+  <nd ref="2415950592"/>
+  <tag k="highway" v="residential"/>
+ </way>
+ <way id="233244512" visible="true" version="2" changeset="17318776" timestamp="2013-08-12T15:16:04Z" user="Sakthi20" uid="1587943">
+  <nd ref="1417340858"/>
+  <nd ref="2415950662"/>
+  <nd ref="2415950661"/>
+  <nd ref="2415950651"/>
+  <tag k="highway" v="residential"/>
+ </way>
+</osm>

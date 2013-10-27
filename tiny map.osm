@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.3.1 (24945 thorn-01.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+    <bounds minlat="12.8535700" minlon="77.6697800" maxlat="12.8562200" maxlon="77.6728900"/>
+    <node id="459516920" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:04Z" user="PlaneMad" uid="1306" lat="12.8536856" lon="77.6714961"/>
+    <node id="459516944" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:05Z" user="PlaneMad" uid="1306" lat="12.8537958" lon="77.6719604"/>
+    <node id="459516945" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:05Z" user="PlaneMad" uid="1306" lat="12.8540049" lon="77.6707098"/>
+    <node id="459516946" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:05Z" user="PlaneMad" uid="1306" lat="12.8537872" lon="77.6706249"/>
+    <node id="459516947" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:06Z" user="PlaneMad" uid="1306" lat="12.8547125" lon="77.6708532"/>
+    <node id="459515911" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8546450" lon="77.6711771"/>
+    <node id="459515912" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8545231" lon="77.6715254"/>
+    <node id="459515913" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8542488" lon="77.6718290"/>
+    <node id="459515914" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8542184" lon="77.6720568"/>
+    <node id="459515915" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8543359" lon="77.6723336"/>
+    <node id="459515916" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8545144" lon="77.6724899"/>
+    <node id="459515917" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8551400" lon="77.6723917"/>
+    <node id="459515918" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8557862" lon="77.6725591"/>
+    <node id="459515919" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8549342" lon="77.6697898"/>
+    <node id="459515920" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8560719" lon="77.6701868"/>
+    <node id="459515921" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8561399" lon="77.6703124"/>
+    <node id="459515922" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8562012" lon="77.6709194"/>
+    <node id="459515923" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8560039" lon="77.6716800"/>
+    <node id="459515926" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8539961" lon="77.6719622"/>
+    <node id="459515927" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8535921" lon="77.6719586"/>
+    <node id="459515954" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:36Z" user="PlaneMad" uid="1306" lat="12.8542025" lon="77.6701966"/>
+    <node id="459515906" visible="true" version="4" changeset="17121012" timestamp="2013-07-28T05:47:26Z" user="Prasanth Rajan" uid="634020" lat="12.8549725" lon="77.6654179"/>
+    <node id="459515907" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8548888" lon="77.6664302"/>
+    <node id="459515908" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8551109" lon="77.6666981"/>
+    <node id="459515909" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8552284" lon="77.6669259"/>
+    <node id="459515910" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:34Z" user="PlaneMad" uid="1306" lat="12.8550891" lon="77.6690470"/>
+    <node id="459515924" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8556774" lon="77.6732429"/>
+    <node id="459515925" visible="true" version="2" changeset="17318776" timestamp="2013-08-12T15:16:07Z" user="Sakthi20" uid="1587943" lat="12.8557454" lon="77.6741151"/>
+    <node id="459515928" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8531428" lon="77.6718979"/>
+    <node id="459515929" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8527527" lon="77.6718086"/>
+    <node id="459515930" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8522790" lon="77.6717872"/>
+    <node id="459515931" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8505410" lon="77.6713406"/>
+    <node id="459515932" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8504296" lon="77.6712513"/>
+    <node id="459515933" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8487159" lon="77.6708655"/>
+    <node id="459515934" visible="true" version="4" changeset="17121012" timestamp="2013-07-28T05:47:26Z" user="Prasanth Rajan" uid="634020" lat="12.8487098" lon="77.6703773"/>
+    <node id="459515945" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:35Z" user="PlaneMad" uid="1306" lat="12.8518314" lon="77.6699622"/>
+    <node id="459515949" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:36Z" user="PlaneMad" uid="1306" lat="12.8515583" lon="77.6699051"/>
+    <node id="459515952" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:36Z" user="PlaneMad" uid="1306" lat="12.8513098" lon="77.6698444"/>
+    <node id="459515953" visible="true" version="1" changeset="2083886" timestamp="2009-08-09T11:39:36Z" user="PlaneMad" uid="1306" lat="12.8527815" lon="77.6701194"/>
+    <node id="459516917" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:04Z" user="PlaneMad" uid="1306" lat="12.8526463" lon="77.6712779"/>
+    <node id="459516919" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:04Z" user="PlaneMad" uid="1306" lat="12.8531109" lon="77.6713085"/>
+    <node id="459516921" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:04Z" user="PlaneMad" uid="1306" lat="12.8534113" lon="77.6727911"/>
+    <node id="459516923" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:04Z" user="PlaneMad" uid="1306" lat="12.8533242" lon="77.6728938"/>
+    <node id="459516924" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:04Z" user="PlaneMad" uid="1306" lat="12.8528410" lon="77.6729027"/>
+    <node id="459516925" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:05Z" user="PlaneMad" uid="1306" lat="12.8522706" lon="77.6731528"/>
+    <node id="459516926" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:05Z" user="PlaneMad" uid="1306" lat="12.8513874" lon="77.6735842"/>
+    <node id="459516928" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:05Z" user="PlaneMad" uid="1306" lat="12.8509428" lon="77.6739432"/>
+    <node id="459516929" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:05Z" user="PlaneMad" uid="1306" lat="12.8507207" lon="77.6740504"/>
+    <node id="459516930" visible="true" version="2" changeset="7494826" timestamp="2011-03-08T16:09:02Z" user="PlaneMad" uid="1306" lat="12.8501939" lon="77.6740748"/>
+    <node id="459516931" visible="true" version="2" changeset="7494826" timestamp="2011-03-08T16:09:05Z" user="PlaneMad" uid="1306" lat="12.8494057" lon="77.6739035"/>
+    <node id="459516932" visible="true" version="3" changeset="17665823" timestamp="2013-09-04T06:46:55Z" user="Prasanth Rajan" uid="634020" lat="12.8487295" lon="77.6742311"/>
+    <node id="459516948" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:06Z" user="PlaneMad" uid="1306" lat="12.8549969" lon="77.6694890"/>
+    <node id="459516950" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:06Z" user="PlaneMad" uid="1306" lat="12.8550444" lon="77.6692611"/>
+    <node id="459516962" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:06Z" user="PlaneMad" uid="1306" lat="12.8526959" lon="77.6729663"/>
+    <node id="459516964" visible="true" version="2" changeset="7494826" timestamp="2011-03-08T16:09:00Z" user="PlaneMad" uid="1306" lat="12.8504133" lon="77.6740502"/>
+    <node id="459516968" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:06Z" user="PlaneMad" uid="1306" lat="12.8508589" lon="77.6739837"/>
+    <node id="459516970" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:06Z" user="PlaneMad" uid="1306" lat="12.8505970" lon="77.6740680"/>
+    <node id="459516974" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:06Z" user="PlaneMad" uid="1306" lat="12.8502373" lon="77.6712080"/>
+    <node id="459516976" visible="true" version="1" changeset="2083945" timestamp="2009-08-09T11:45:07Z" user="PlaneMad" uid="1306" lat="12.8498623" lon="77.6711236"/>
+    <node id="1192792151" visible="true" version="3" changeset="17665823" timestamp="2013-09-04T06:46:55Z" user="Prasanth Rajan" uid="634020" lat="12.8474683" lon="77.6747514"/>
+    <node id="2445376604" visible="true" version="1" changeset="17665823" timestamp="2013-09-04T06:46:54Z" user="Prasanth Rajan" uid="634020" lat="12.8484968" lon="77.6743271"/>
+    <way id="38753429" visible="true" version="6" changeset="12677731" timestamp="2012-08-10T09:24:32Z" user="Ashish Vijayaram" uid="83660">
+        <nd ref="459515918"/>
+        <nd ref="459515917"/>
+        <nd ref="459515916"/>
+        <nd ref="459515915"/>
+        <nd ref="459515914"/>
+        <nd ref="459515913"/>
+        <nd ref="459515912"/>
+        <nd ref="459515911"/>
+        <nd ref="459516947"/>
+        <nd ref="459515919"/>
+        <nd ref="459516948"/>
+        <nd ref="459516950"/>
+        <nd ref="459515910"/>
+        <nd ref="459515909"/>
+        <nd ref="459515908"/>
+        <nd ref="459515907"/>
+        <nd ref="459515906"/>
+        <tag k="highway" v="unclassified"/>
+    </way>
+    <way id="38754834" visible="true" version="2" changeset="12677731" timestamp="2012-08-10T09:24:37Z" user="Ashish Vijayaram" uid="83660">
+        <nd ref="459515919"/>
+        <nd ref="459515920"/>
+        <nd ref="459515921"/>
+        <nd ref="459515922"/>
+        <nd ref="459515923"/>
+        <nd ref="459515918"/>
+        <nd ref="459515924"/>
+        <nd ref="459515925"/>
+        <tag k="highway" v="unclassified"/>
+    </way>
+    <way id="38754835" visible="true" version="3" changeset="12677731" timestamp="2012-08-10T09:24:32Z" user="Ashish Vijayaram" uid="83660">
+        <nd ref="459515913"/>
+        <nd ref="459515926"/>
+        <nd ref="459516944"/>
+        <nd ref="459515927"/>
+        <nd ref="459515928"/>
+        <nd ref="459515929"/>
+        <nd ref="459515930"/>
+        <nd ref="459515931"/>
+        <nd ref="459515932"/>
+        <nd ref="459516974"/>
+        <nd ref="459516976"/>
+        <nd ref="459515933"/>
+        <nd ref="459515934"/>
+        <tag k="highway" v="unclassified"/>
+    </way>
+    <way id="38754845" visible="true" version="2" changeset="12677731" timestamp="2012-08-10T09:24:37Z" user="Ashish Vijayaram" uid="83660">
+        <nd ref="459515952"/>
+        <nd ref="459515949"/>
+        <nd ref="459515945"/>
+        <nd ref="459515953"/>
+        <nd ref="459515954"/>
+        <tag k="highway" v="unclassified"/>
+    </way>
+    <way id="38754989" visible="true" version="2" changeset="12677731" timestamp="2012-08-10T09:24:36Z" user="Ashish Vijayaram" uid="83660">
+        <nd ref="459516917"/>
+        <nd ref="459516919"/>
+        <nd ref="459516920"/>
+        <tag k="highway" v="unclassified"/>
+    </way>
+    <way id="38754990" visible="true" version="4" changeset="17665823" timestamp="2013-09-04T06:46:56Z" user="Prasanth Rajan" uid="634020">
+        <nd ref="459516946"/>
+        <nd ref="459516920"/>
+        <nd ref="459515927"/>
+        <nd ref="459516921"/>
+        <nd ref="459516923"/>
+        <nd ref="459516924"/>
+        <nd ref="459516962"/>
+        <nd ref="459516925"/>
+        <nd ref="459516926"/>
+        <nd ref="459516928"/>
+        <nd ref="459516968"/>
+        <nd ref="459516929"/>
+        <nd ref="459516970"/>
+        <nd ref="459516964"/>
+        <nd ref="459516930"/>
+        <nd ref="459516931"/>
+        <nd ref="459516932"/>
+        <nd ref="2445376604"/>
+        <nd ref="1192792151"/>
+        <tag k="highway" v="unclassified"/>
+    </way>
+    <way id="38754994" visible="true" version="2" changeset="12677731" timestamp="2012-08-10T09:24:34Z" user="Ashish Vijayaram" uid="83660">
+        <nd ref="459516944"/>
+        <nd ref="459516945"/>
+        <tag k="highway" v="unclassified"/>
+    </way>
+    <way id="38754995" visible="true" version="2" changeset="12677731" timestamp="2012-08-10T09:24:33Z" user="Ashish Vijayaram" uid="83660">
+        <nd ref="459516945"/>
+        <nd ref="459516947"/>
+        <tag k="highway" v="unclassified"/>
+    </way>
+</osm>
