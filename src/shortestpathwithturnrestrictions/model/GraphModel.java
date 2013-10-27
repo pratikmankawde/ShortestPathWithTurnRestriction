@@ -26,7 +26,7 @@ public class GraphModel {
     public void initAdjMat(int noOfNodes) {
         this.adjMat =  new Cost[noOfNodes][noOfNodes];
         this.noOfNodes = noOfNodes;
-       System.out.println(noOfNodes);
+//      System.out.println(noOfNodes);
     }    
     
     public Cost[][] fillAdjMat(ArrayList<RoadFragment> edges) {

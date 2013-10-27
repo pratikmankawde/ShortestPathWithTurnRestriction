@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Hashtable;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -31,7 +32,7 @@ import shortestpathwithturnrestrictions.view.DrawXY;
 public class MySAXParser extends DefaultHandler {
 
     Hashtable<Long, NodeModel> nodes = new Hashtable();
-    ArrayList<RoadFragment> roads = new ArrayList<RoadFragment>();
+    ArrayList<RoadFragment> roads = new ArrayList<>();
     RoadFragment road;
     NodeModel node;
     double minLat, minLon;
@@ -129,42 +130,59 @@ public class MySAXParser extends DefaultHandler {
         System.out.println("Size of hashtable:" + nodes.size());
         for (int i = 0; i < roads.size(); i++) {
             //    System.out.println("No of nodes in road:"+i+"="+roads.get(i).getPoints().size());
-
+            //       System.out.println("\n"+roads.get(i).getPoints().size());
             for (int j = 0; j < roads.get(i).getPoints().size(); j++) {
                 node = roads.get(i).getPoints().get(j);
                 if (j != 0 && j != roads.get(i).getPoints().size() - 1 && nodes.containsKey(node.getId())) {
                     if (!node.isKeep()) {
                         nodes.remove(node.getId());
-                        //    System.out.println("Node Removed:"+node.getId());
+
+                        //                System.out.println("Node Removed:"+node.getId());
                     }
                 } else {
                     node.setKeep(true);
                     if (!nodes.containsKey(node.getId())) {
                         nodes.put(node.getId(), node);
-                        //      System.out.println("Node added again:"+node.getId());
+                        //                      System.out.println("Node added again:"+node.getId());
                     }
                 }
+                //        System.out.print(":"+j);
             }
         }
-        System.out.println("***************\nSize of hashtable:" + nodes.size());
+        System.out.println("size reduced to:" + nodes.size());
+//
+//        System.out.println("HashEnties:");
+//        
+//        Enumeration<Long> em = nodes.keys();
+//        while(em.hasMoreElements())
+//            System.out.println(em.nextElement());
+//        
 
         for (int i = 0; i < roads.size(); i++) {
             for (int j = 0; j < roads.get(i).getPoints().size(); j++) {
                 node = roads.get(i).getPoints().get(j);
-                if (nodes.containsKey(node.getId())) {
-              //      System.out.println("Present HashEntry:\t" + node.getId());
-                    //      System.out.println("Node removed from roadFragment"+node.getId());
-                } else {
+                //          System.out.println(node.getId()+":"+nodes.containsKey(node.getId()));
+                if (!nodes.containsKey(node.getId())) {
+
                     roads.get(i).getPoints().remove(j);
-              //       System.out.println("Node removed from roadFragment:\t"+node.getId());
+                    //                System.out.println("Node removed from roadFragment:\t"+node.getId());
+                    j--; //because arraylist is updated, all elements got shifted towards left by 1
                 }
 
             }
             roads.get(i).getPoints().trimToSize();
             //     System.out.println("No of nodes in road:"+i+"="+roads.get(i).getPoints().size());
-
         }
-        
+
+//        
+//        for (int i = 0; i < roads.size(); i++) {
+//            System.out.println("\nRoad:"+roads.get(i).getId());
+//            for (int j = 0; j < roads.get(i).getPoints().size(); j++) {
+//                node = roads.get(i).getPoints().get(j);
+//                System.out.print(node.getId()+"->");
+//            }
+//        }
+
     }
 
     public void setIntRoadCoord() {
@@ -221,14 +239,13 @@ public class MySAXParser extends DefaultHandler {
 
     public static void main(String[] args) {
 
-        File fl = new File("tiny map.osm");
+        File fl = new File("medium.osm");
         try {
             FileInputStream fis = new FileInputStream(fl);
             MySAXParser msaxParcer = new MySAXParser(fis);
-            //     msaxParcer.normalize();
 
-             msaxParcer.setCostOfRoad();
-            msaxParcer.removeRedundantVertises();
+            msaxParcer.setCostOfRoad();
+      //      msaxParcer.removeRedundantVertises();
             msaxParcer.setIntRoadCoord();
             DrawXY draw = new DrawXY(msaxParcer.getRoads());
             draw.draw();
