@@ -67,7 +67,7 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
             for (i = 0; i < road.getX().length; i++) {
                 graphicsObj.fillOval(road.getX()[i], road.getY()[i], radius, radius);
             }
-            //  radius-=100;
+          
             graphicsObj.setColor(Color.GREEN);
             graphicsObj.drawString("cost:" + (float) (road.getCostObj().getFizedCost() * Constants.scaler), road.getX()[i / 2], road.getY()[i / 2]);
        //     System.out.println("cost:"+(float)(road.getCostObj().getFizedCost()* Constants.scaler)+" "+road.getX()[i/2]+" "+road.getY()[i/2]);
