@@ -35,7 +35,7 @@ public class MySAXParser extends DefaultHandler {
     RoadFragment road;
     NodeModel node;
     double minLat, minLon;
-
+    
     public MySAXParser(InputStream XmlStream) {
 
         parseDocument(XmlStream);
@@ -173,20 +173,29 @@ public class MySAXParser extends DefaultHandler {
     public void setIntRoadCoord() {
 
         int i = 0;
+        
         for (RoadFragment road : roads) {
             //  System.out.println(road.getId());
             road.initArrays(road.getPoints().size());
             i = 0;
             for (NodeModel node : road.getPoints()) {
-                road.fillArrays((int) ((node.getLatitude() - minLat) * 10000000), (int) ((node.getLongitude() - minLon) * 10000000), i++);
-                //  System.out.println(node.getId()+" : "+(node.getLatitude()-lat)*10000000+" "+(node.getLongitude()-lon)*10000000);  
-                //     System.out.println(node.getId()+" : "+road.getX()[i-1]+" "+road.getY()[i-1]);  
-
+                road.fillArrays((int) ((node.getLatitude() - minLat) * 50000), (int) ((node.getLongitude() - minLon) * 50000), i++);
+            //    System.out.println(road.getX()[i-1]+" "+road.getY()[i-1]);
+               
             }
-            //System.out.println("\n\n");
+//            //System.out.println("\n\n");
+//            i--;
+//        while(i>=0){
+//        road.fillArrays(road.getX()[i]-minX, road.getY()[i]-minY,i );
+//        System.out.println(road.getX()[i]+" "+road.getY()[i]);
+//        i--;
+//        }
         }
+       
+        
     }
 
+    
 
     public ArrayList<RoadFragment> getRoads() {
         return roads;

@@ -17,7 +17,7 @@ public class GraphModel {
     Cost[][] adjMat;
     int noOfNodes;
     CostCalculations costCalculator = new CostCalculations();
-    Hashtable<Long, Integer> vertices ;
+    Hashtable<Long, Integer> vertices;
     
     public void initAdjMat(int noOfNodes) {
         this.adjMat = new Cost[noOfNodes][noOfNodes];
@@ -33,8 +33,6 @@ public class GraphModel {
         this.vertices = vertices;
     }
 
-    
-    
     public Cost[][] fillAdjMat(ArrayList<RoadFragment> edges) {
 
         int count = 0, indexi, indexj;
@@ -68,10 +66,10 @@ public class GraphModel {
 
             }
         }
-        
+
         vertices.clear();
-        
-    //    printCostMatrix();
+
+        printCostMatrix();
 
         return adjMat;
 
@@ -82,7 +80,7 @@ public class GraphModel {
 
         adjMat[indexi][indexj] = new Cost(0.0);
         adjMat[indexj][indexi] = new Cost(0.0);
-        adjMat[indexi][indexj].setFizedCost(Math.abs(node2.getCostObj().getFizedCost()-node1.getCostObj().getFizedCost())*Constants.scaler);
+        adjMat[indexi][indexj].setFizedCost(Math.abs(node2.getCostObj().getFizedCost() - node1.getCostObj().getFizedCost()) * Constants.scaler);
         adjMat[indexj][indexi].setFizedCost(adjMat[indexi][indexj].getFizedCost());
 
         adjMat[indexi][indexi] = new Cost(0.0);
@@ -96,17 +94,17 @@ public class GraphModel {
     void printCostMatrix() {
 
         //Print cost matrix
-        System.out.print("  ");
+        System.out.print("\t");
         int count = 0;
         for (int j = 0; j < noOfNodes; j++) {
             System.out.print(j + "\t");
         }
         System.out.println("Junction");
         for (int i = 0; i < noOfNodes; i++) {
-            System.out.print(i + " ");
+            System.out.print(i + "\t");
             for (int j = 0; j < noOfNodes; j++) {
                 if (adjMat[i][j] != null) {
-                    System.out.print((float) (adjMat[i][j].getFizedCost() ) + "\t");
+                    System.out.print((int) (adjMat[i][j].getFizedCost()) + "\t");
                     count++;
                 } else {
                     System.out.print("*\t");
@@ -122,9 +120,9 @@ public class GraphModel {
         //   System.out.println(count);
 
 
-     
+
     }
-    
+
     public Cost[][] getAdjMat() {
         return adjMat;
     }
@@ -144,6 +142,4 @@ public class GraphModel {
     public void setCostCalculator(CostCalculations costCalculator) {
         this.costCalculator = costCalculator;
     }
-       
-    
 }

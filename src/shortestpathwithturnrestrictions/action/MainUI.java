@@ -31,7 +31,7 @@ public class MainUI extends javax.swing.JFrame {
     JFileChooser fchooser;
     String currentDir = null;
     BellmanFordShortestPath bfsp;
-    
+    int noOfNodes;
     public MainUI() {
 
 
@@ -157,8 +157,10 @@ public class MainUI extends javax.swing.JFrame {
             try {
                 fileLoader = new MySAXParser(new FileInputStream(mapDataFile));
                 new CostCalculations().setCosts(fileLoader.getRoads());     // Find cost of road fragments
-                fileLoader.removeRedundantVertises(); //Remove all vertices except junctions and end points
+               // fileLoader.removeRedundantVertises(); //Remove all vertices except junctions and end points
                 fileLoader.setIntRoadCoord();   // initialize integer vertices to draw maps
+                noOfNodes=fileLoader.getNodes().size();
+                fileLoader.getNodes().clear();
                 DrawMap draw = new DrawMap(fileLoader.getRoads());    //
                 draw.draw();    // Draw map
                 btInitGraph.setVisible(true);
@@ -179,16 +181,17 @@ public class MainUI extends javax.swing.JFrame {
 
         // Create graph of vertices
         GraphModel gModel = new GraphModel();
-        gModel.initAdjMat(fileLoader.getNodes().size());
-        fileLoader.getNodes().clear();
+        gModel.initAdjMat(noOfNodes);
         
         gModel.fillAdjMat(fileLoader.getRoads());
 
         bfsp = new BellmanFordShortestPath(gModel);
-        int [] shortestPath = bfsp.findShortestPath(0, 5);
-        
-       for(int i=0; i< shortestPath.length; i++){
-           System.out.print(shortestPath[i]+"->");
+        int [] shortestPath = bfsp.findShortestPath(0, 12);
+        int i=10;
+       System.out.print(gModel.getNoOfNodes()+":"+i+"->");
+       while(i!=0){
+       System.out.print(shortestPath[i]+"->");
+       i = shortestPath[i];
        }
         
     }
