@@ -58,6 +58,7 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         graphicsObj.setStroke(new BasicStroke(700f));
         graphicsObj.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 2000));
         int radius = 1000;
+        int j=0;
         for (RoadFragment road : roads) {
 
             //   System.out.println("Road Drawn:"+road.getId());
@@ -66,11 +67,13 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
             graphicsObj.setColor(Color.RED);
             for (i = 0; i < road.getX().length; i++) {
                 graphicsObj.fillOval(road.getX()[i], road.getY()[i], radius, radius);
+                graphicsObj.drawString((j++)+":"+road.getPoints().get(i).getId(),road.getX()[i], road.getY()[i]);
+                
             }
           
-            graphicsObj.setColor(Color.GREEN);
-            graphicsObj.drawString("cost:" + (float) (road.getCostObj().getFizedCost() * Constants.scaler), road.getX()[i / 2], road.getY()[i / 2]);
-       //     System.out.println("cost:"+(float)(road.getCostObj().getFizedCost()* Constants.scaler)+" "+road.getX()[i/2]+" "+road.getY()[i/2]);
+        //    graphicsObj.setColor(Color.GREEN);
+          //  graphicsObj.drawString("cost:" + (float) (road.getCostObj().getFizedCost() * Constants.scaler),road.getX()[i / 2], 100+road.getY()[i / 2]);
+         //   System.out.println("cost:"+(float)(road.getCostObj().getFizedCost()* Constants.scaler)+" "+road.getX()[i/2]+" "+road.getY()[i/2]);
             graphicsObj.setColor(new Color((10 * i) % 255, (i * i) % 255, (20 * i) % 255));
 
         }

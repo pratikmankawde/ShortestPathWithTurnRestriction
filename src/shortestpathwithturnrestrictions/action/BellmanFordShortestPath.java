@@ -23,7 +23,7 @@ public class BellmanFordShortestPath {
 
     }
 
-    public void findShortestPath(int source, int destination) {
+    public int[] findShortestPath(int source, int destination) {
 
 
         /*   use this function to get adjacency matrix, store it in some variable or
@@ -32,36 +32,36 @@ public class BellmanFordShortestPath {
 
         Cost[][] matrix = graph.getAdjMat();
         int n = graph.getNoOfNodes();
+        int[] path = new int[n];
         ArrayList<Integer> distance = new ArrayList<Integer>();
         for (int j = 0; j < n; j++) {
             Integer i = new Integer(Integer.MAX_VALUE);
             distance.add(i);
-
         }
         QueueImplementation<Integer> que = new QueueImplementation<Integer>();
         que.enqueue(source);
         distance.set(source, 0);
+        
+        Integer k;
+        int dis ;
         while (que.size() != 0) {
-            Integer k = que.dequeue();
+            k = que.dequeue();
             for (int x = 0; x < graph.getNoOfNodes(); x++) {
-                if (matrix[k][x].getFizedCost() != 0) {
-                    int dis = distance.get(k).intValue() + (int) matrix[k][x].getFizedCost();
+                if (matrix[k][x]!= null && matrix[k][x].getFizedCost() != 0) {
+                    dis = distance.get(k).intValue() + (int) matrix[k][x].getFizedCost();
                     if (distance.get(x).intValue() > dis) {
                         distance.set(x, dis);
-                    }
-                    int flag = 0;
-                    for (int l = 0; l < que.size(); l++) {
-                        // write code here to check if the object already exists in the queue or not
-                    }
-                    if (flag == 0) {
+                        
+                        path[x] = k;
+                        if (que.checkEntry(new Integer(x))) {
                         que.enqueue(x);
+                        }
                     }
-
-
                 }
             }
 
         }
-
+        
+        return path;
     }
 }

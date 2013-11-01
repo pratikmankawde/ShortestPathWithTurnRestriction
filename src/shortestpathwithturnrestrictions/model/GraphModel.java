@@ -17,7 +17,7 @@ public class GraphModel {
     Cost[][] adjMat;
     int noOfNodes;
     CostCalculations costCalculator = new CostCalculations();
-
+    Hashtable<Long, Integer> vertices ;
     
     public void initAdjMat(int noOfNodes) {
         this.adjMat = new Cost[noOfNodes][noOfNodes];
@@ -25,10 +25,20 @@ public class GraphModel {
 //      System.out.println(noOfNodes);
     }
 
+    public Hashtable<Long, Integer> getVertices() {
+        return vertices;
+    }
+
+    public void setVertices(Hashtable<Long, Integer> vertices) {
+        this.vertices = vertices;
+    }
+
+    
+    
     public Cost[][] fillAdjMat(ArrayList<RoadFragment> edges) {
 
         int count = 0, indexi, indexj;
-        Hashtable<Long, Integer> vertices = new Hashtable<>();
+        vertices = new Hashtable<>();
         NodeModel node1, node2;
 
         for (int i = 0; i < edges.size(); i++) {
@@ -61,7 +71,7 @@ public class GraphModel {
         
         vertices.clear();
         
-        printCostMatrix();
+    //    printCostMatrix();
 
         return adjMat;
 

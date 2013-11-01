@@ -84,5 +84,12 @@ public class QueueImplementation<E extends Comparable<E>> implements QueueInterf
 	public int size() {
 		return llque.size();
 	}
+        
+        public boolean checkEntry(E e){
+     
+            return llque.contains(e);
+            
+        }
+        
 
 }
