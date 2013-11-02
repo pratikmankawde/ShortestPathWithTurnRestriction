@@ -16,11 +16,16 @@ import shortestpathwithturnrestrictions.utility.QueueImplementation;
 public class BellmanFordShortestPath {
 
     GraphModel graph;
-
+    Cost[][] matrix;
+    int[] path;
+    int noOfNodes;
+    
     public BellmanFordShortestPath(GraphModel graph) {
 
         this.graph = graph;
-
+        matrix = graph.getAdjMat();
+        noOfNodes = graph.getNoOfNodes();
+        path = new int[noOfNodes];
     }
 
     public int[] findShortestPath(int source, int destination) {
@@ -30,13 +35,10 @@ public class BellmanFordShortestPath {
          use directly and calculate shortest path. Return it in the form of any data structure/object
          */
 
-        Cost[][] matrix = graph.getAdjMat();
-        int n = graph.getNoOfNodes();
-        int[] path = new int[n];
         ArrayList<Double> distance = new ArrayList<Double>();
-        for (int j = 0; j < n; j++) {
-            Double i = new Double(Double.MAX_VALUE);
-            distance.add(i);
+        for (int j = 0; j < noOfNodes; j++) {
+            distance.add(new Double(Double.MAX_VALUE));
+            path[j]=-1;
         }
         QueueImplementation<Integer> que = new QueueImplementation<Integer>();
         que.enqueue(source);

@@ -23,22 +23,26 @@ import java.awt.geom.Rectangle2D;
 
 import java.util.ArrayList;
 import javax.swing.event.MouseInputListener;
+import shortestpathwithturnrestrictions.action.ProcessData;
 import shortestpathwithturnrestrictions.model.RoadFragment;
 
 public class DrawMap extends JPanel implements MouseInputListener, MouseWheelListener, KeyListener {
 
-    Graphics2D graphicsObj;
-    ArrayList<RoadFragment> roads;
-    double zoom = 1;
-    double angle = 0.0;
-    double startX, startY, endX = 0.0, endY = 0.0, moveX, moveY;
-    ArrayList<Ellipse2D> vertexNodes;
-    Image sourceMarker, destinationMarker;
+    private Graphics2D graphicsObj;
+    private ArrayList<RoadFragment> roads;
+    private double zoom = 1;
+    private double angle = 0.0;
+    private double endX = 0.0, endY = 0.0, moveX, moveY;
+    private ArrayList<Ellipse2D> vertexNodes;
+    private ArrayList<Long> vertexIds;
+    private Image sourceMarker, destinationMarker;
+    private ProcessData dataProcessor;
+    private int[] shortestPath=null;
     
-    int sourceVertex = -1;
-    int destinationVertext = -1;
+    private int sourceVertex = -1;
+    private int destinationVertex = -1;
 
-    public DrawMap(ArrayList<RoadFragment> roads) {
+    public DrawMap(ArrayList<RoadFragment> roads, ProcessData dataProcessor) {
         // TODO Auto-generated constructor stub
         this.roads = roads;
         this.addMouseWheelListener(this);
@@ -46,6 +50,7 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         this.addMouseMotionListener(this);
         this.addKeyListener(this);
         init();
+        this.dataProcessor=dataProcessor;
     }
 
     public void paintComponent(Graphics g) {
@@ -56,56 +61,47 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
                 RenderingHints.VALUE_ANTIALIAS_ON);
 
         this.setBackground(Color.white);
-
         graphicsObj.setColor(Color.ORANGE);
-
-
-        graphicsObj.scale(zoom, zoom);
-
-        graphicsObj.translate(moveX, moveY);
-
-        //   graphicsObj.rotate(-1.55);
-
-
-        int i = 0;
         graphicsObj.setStroke(new BasicStroke(2f));
-        graphicsObj.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 10));
+        graphicsObj.setFont(new Font(Font.MONOSPACED, Font.BOLD, 10));
+        
+        graphicsObj.scale(zoom, zoom);
+        graphicsObj.translate(moveX, moveY);
+      //graphicsObj.rotate(-1.55);
+
         int nodeNo = 0;
+        
         for (RoadFragment road : roads) {
-
-            //   System.out.println("Road Drawn:"+road.getId());
             graphicsObj.drawPolyline(road.getX(), road.getY(), road.getX().length);
-            //     graphicsObj.setColor(new Color((10*i)%255, (i*i)%255, (20*i)%255));               
-            // graphicsObj.setColor(Color.RED);
-            // for (i = 0; i < road.getX().length; i++) {
-            //     graphicsObj.setColor(Color.RED);
-            //     graphicsObj.fillOval(road.getX()[i], road.getY()[i], radius, radius);
-            // graphicsObj.drawString((j++)+":"+road.getPoints().get(i).getId(),road.getX()[i], road.getY()[i]);
-            //    graphicsObj.setColor(Color.BLACK);
-            //     graphicsObj.drawString(String.valueOf(nodeNo),road.getX()[i],nodeNo+ road.getY()[i]);
-
-
             nodeNo++;
-
-            //   }
-
-            //    graphicsObj.setColor(Color.GREEN);
-            //  graphicsObj.drawString("cost:" + (float) (road.getCostObj().getFizedCost() * Constants.scaler),road.getX()[i / 2], 100+road.getY()[i / 2]);
-            //   System.out.println("cost:"+(float)(road.getCostObj().getFizedCost()* Constants.scaler)+" "+road.getX()[i/2]+" "+road.getY()[i/2]);
             graphicsObj.setColor(new Color((47 * nodeNo) % 255, (3 * nodeNo * nodeNo) % 255, (73 * nodeNo) % 255));
-
         }
-        //  graphicsObj.setStroke(new BasicStroke(2000f));
+    
         graphicsObj.setColor(Color.RED);
-        for (i = 0; i < vertexNodes.size(); i++) {
+        for (int i = 0; i < vertexNodes.size(); i++) {
             graphicsObj.fill(vertexNodes.get(i));
         }
+        
+        
+        if(shortestPath!=null){
+        graphicsObj.setStroke(new BasicStroke(4f));
+        graphicsObj.setColor(Color.black);
+        int i = destinationVertex;
+
+        while (i != sourceVertex && shortestPath[i]!=-1) {
+            graphicsObj.drawLine((int)vertexNodes.get(i).getCenterX(),(int) vertexNodes.get(i).getCenterY(), (int)vertexNodes.get(shortestPath[i]).getCenterX(),(int) vertexNodes.get(shortestPath[i]).getCenterY());
+            i = shortestPath[i];
+        }
+
+        }
+        
         if (sourceVertex != -1) {
             graphicsObj.drawImage(sourceMarker, (int) (vertexNodes.get(sourceVertex).getCenterX() - sourceMarker.getWidth(null) / 2), (int) (vertexNodes.get(sourceVertex).getCenterY() - sourceMarker.getHeight(null) / 2), null);
         }
-        if (destinationVertext != -1) {
-            graphicsObj.drawImage(destinationMarker, (int) (vertexNodes.get(destinationVertext).getCenterX() - destinationMarker.getWidth(null) / 2), (int) (vertexNodes.get(destinationVertext).getCenterY() - destinationMarker.getHeight(null) / 2), null);
+        if (destinationVertex != -1) {
+            graphicsObj.drawImage(destinationMarker, (int) (vertexNodes.get(destinationVertex).getCenterX() - destinationMarker.getWidth(null) / 2), (int) (vertexNodes.get(destinationVertex).getCenterY() - destinationMarker.getHeight(null) / 2), null);
         }
+        
     }
 
     public void draw() {
@@ -117,26 +113,31 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         this.setFocusable(true);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        
         moveX = this.getWidth() / 2;
         moveY = this.getHeight() / 2;
-        Toolkit.getDefaultToolkit().sync();
-        sourceMarker = Toolkit.getDefaultToolkit().getImage("sourceMarker.png");
-        destinationMarker = Toolkit.getDefaultToolkit().getImage("destinationMarker.png");
 
     }
 
     public void init() {
 
-        int i = 0;
         vertexNodes = new ArrayList<Ellipse2D>();
+        vertexIds = new ArrayList<Long>();
+        long temp;
         float radius = 5;
         for (RoadFragment road : roads) {
-            for (i = 0; i < road.getX().length; i++) {
+            for (int i = 0; i < road.getX().length; i++) {
+                temp = road.getPoints().get(i).getId();
+                if(!vertexIds.contains(temp)){
                 vertexNodes.add(new Ellipse2D.Float(road.getX()[i], road.getY()[i], radius, radius));
-
+                vertexIds.add(temp);
+                }
             }
         }
 
+        sourceMarker = Toolkit.getDefaultToolkit().getImage("sourceMarker.png");
+        destinationMarker = Toolkit.getDefaultToolkit().getImage("destinationMarker.png");
+        
     }
 
     @Override
@@ -159,24 +160,28 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
             i++;
         }
 
-        
         if (pointSelected) {
-            System.out.println(i + "th Point selected.");
+            System.out.println(i + "th Point selected."+vertexIds.get(i));
             if (sourceVertex == i) {
                 sourceVertex = -1;
             } else if (sourceVertex != -1) {
-                if (destinationVertext != i && destinationVertext!=sourceVertex) {
-                    destinationVertext = i;
+                if (destinationVertex != i && destinationVertex!=sourceVertex) {
+                    destinationVertex = i;
                 } else {
-                    destinationVertext = -1;
+                    destinationVertex = -1;
                 }
-            } else if(destinationVertext != i) {
+            } else if(destinationVertex != i) {
                 sourceVertex = i;
             }
         } else {
             System.out.println("No point selected.");
-
         }
+        
+        if(sourceVertex!=-1 && destinationVertex!=-1){
+            shortestPath = dataProcessor.calculateShortestPath(sourceVertex, destinationVertex);
+        }
+        else
+            shortestPath = null;
         repaint();
     }
 
@@ -199,9 +204,8 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
     @Override
     public void mouseDragged(MouseEvent e) {
 
-
-        startX = endX;
-        startY = endY;
+        double startX = endX;
+        double startY = endY;
         endX = e.getX();
         endY = e.getY();
 
@@ -220,9 +224,9 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
     public void mouseWheelMoved(MouseWheelEvent e) {
 
         if (e.getWheelRotation() > 0) {
-            zoom -= 0.01;
+            zoom -= 0.05;
         } else if (e.getWheelRotation() < 0) {
-            zoom += 0.01;
+            zoom += 0.05;
         }
         repaint();
     }

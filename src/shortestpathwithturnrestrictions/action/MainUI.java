@@ -31,6 +31,7 @@ public class MainUI extends javax.swing.JFrame {
     JFileChooser fchooser;
     String currentDir = null;
     BellmanFordShortestPath bfsp;
+    GraphModel gModel;
     int noOfNodes;
     public MainUI() {
 
@@ -46,7 +47,7 @@ public class MainUI extends javax.swing.JFrame {
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Map data file (.osm)", "osm","OSM");
         fchooser.addChoosableFileFilter(filter);
         fchooser.setCurrentDirectory(new File("."));
-        btInitGraph.setVisible(false);
+
     }
 
     /**
@@ -63,7 +64,6 @@ public class MainUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         tfFileName = new javax.swing.JTextField();
         btBrowse = new javax.swing.JButton();
-        btInitGraph = new javax.swing.JButton();
         lStatus = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -92,21 +92,10 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
-        btInitGraph.setText("Initialize graph");
-        btInitGraph.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btInitGraphActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btInitGraph)
-                .addGap(140, 140, 140))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,9 +115,7 @@ public class MainUI extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfFileName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btBrowse, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addComponent(btInitGraph, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                 .addComponent(lStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
@@ -154,47 +141,19 @@ public class MainUI extends javax.swing.JFrame {
             mapDataFile = fchooser.getSelectedFile();
             tfFileName.setText(mapDataFile.getName());
             setCursor(Cursor.getPredefinedCursor(3));
-            try {
-                fileLoader = new MySAXParser(new FileInputStream(mapDataFile));
-                new CostCalculations().setCosts(fileLoader.getRoads());     // Find cost of road fragments
-               // fileLoader.removeRedundantVertises(); //Remove all vertices except junctions and end points
-                fileLoader.setIntRoadCoord();   // initialize integer vertices to draw maps
-                noOfNodes=fileLoader.getNodes().size();
-                fileLoader.getNodes().clear();
-                DrawMap draw = new DrawMap(fileLoader.getRoads());    //
-                draw.draw();    // Draw map
-                btInitGraph.setVisible(true);
-                setCursor(Cursor.getDefaultCursor());
-
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
+            ProcessData dataProcessor =  new ProcessData(mapDataFile);
+            dataProcessor.initDataModels();
+            dataProcessor.drawMap();
+            
+            setCursor(Cursor.getDefaultCursor());
 
         }
         fchooser.setCurrentDirectory(fchooser.getCurrentDirectory());
 
     }
 
-    private void initProcessing() {
-
-    //    fileLoader.removeRedundantVertises(); //Remove all vertices except junctions and end points
-
-        // Create graph of vertices
-        GraphModel gModel = new GraphModel();
-        gModel.initAdjMat(noOfNodes);
-        
-        gModel.fillAdjMat(fileLoader.getRoads());
-
-        bfsp = new BellmanFordShortestPath(gModel);
-        int [] shortestPath = bfsp.findShortestPath(0, 12);
-        int i=10;
-       System.out.print(gModel.getNoOfNodes()+":"+i+"->");
-       while(i!=0){
-       System.out.print(shortestPath[i]+"->");
-       i = shortestPath[i];
-       }
-        
-    }
+    
 
     private void btBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBrowseActionPerformed
 
@@ -202,12 +161,6 @@ public class MainUI extends javax.swing.JFrame {
         this.openFile();
 
     }//GEN-LAST:event_btBrowseActionPerformed
-
-    private void btInitGraphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInitGraphActionPerformed
-        initProcessing();
-        lStatus.setText("Graph Created");
-        
-    }//GEN-LAST:event_btInitGraphActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,7 +177,6 @@ public class MainUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBrowse;
-    private javax.swing.JButton btInitGraph;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
