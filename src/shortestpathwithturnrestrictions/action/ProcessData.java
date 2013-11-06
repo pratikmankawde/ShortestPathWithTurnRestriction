@@ -62,7 +62,8 @@ public class ProcessData {
     public String[] calculateShortestPath(int source, int destination) {
 
 
-        BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
+     //   BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
+        AllPairShortestPath apsp = new AllPairShortestPath(gModel);
        // int[] shortestPath = bfsp.findShortestPath(source, destination);
       //  String[] shortestPathStr = bfsp.findShortestPath(source, destination);
 //        int i = destination;
@@ -73,7 +74,7 @@ public class ProcessData {
 //        }
         
         
-        
-        return bfsp.findShortestPath(source, destination);
+        return apsp.getPathStr(source, destination);
+       // return bfsp.findShortestPath(source, destination);
     }
 }

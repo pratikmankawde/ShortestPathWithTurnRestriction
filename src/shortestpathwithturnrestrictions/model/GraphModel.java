@@ -132,8 +132,8 @@ public class GraphModel {
 
     public void setTurnRestrictions(Hashtable<Integer, Turn> TurnRestrictions) {
         this.TurnRestrictions = TurnRestrictions;
-     //   this.TurnRestrictions.put(0, new Turn(5,1,null)); //5->1
-     //   this.TurnRestrictions.put(2, new Turn(3,15,null)); //5->15
+        this.TurnRestrictions.put(0, new Turn(5,1,null)); //5->1
+        this.TurnRestrictions.put(2, new Turn(3,15,null)); //5->15
     }
 
     public Cost[][] getAdjMat() {

@@ -65,13 +65,14 @@ public class BellmanFordShortestPath {
                         //    path[x] = k;
                         if(pathStr[x].length()>0)
                         pathStr[x] = pathStr[x].substring(0,pathStr[x].lastIndexOf(";"))+";" + k;
+                       //pathStr[x] += ";" + k;
                         else
                         pathStr[x] = ";" + k;
                         updatables[x] = 0;
                         if (!que.checkEntry(new Integer(x))) {
                             que.enqueue(x);
                         }
-                                 System.out.println("Shorter path found, Updated:"+k+"->"+x);
+                                 System.out.println("Shorter path found, Updated:"+k+"->"+x+" path to "+x+":"+pathStr[x]);
                     }
                     else if (updatables[x] == 1) {
                         distance.set(x, dist);

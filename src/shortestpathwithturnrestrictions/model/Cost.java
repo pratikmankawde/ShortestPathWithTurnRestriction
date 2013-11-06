@@ -13,7 +13,10 @@ public class Cost {
     private double fizedCost=0.0;
  //   private double variableCost=0.0;
 //    private boolean restricted = false;
-
+    private int via=-1;
+    
+    
+    
     
     public Cost(double fixedCost){
     
@@ -34,6 +37,8 @@ public class Cost {
         this.fizedCost = fizedCost;
     }
 /*
+ * 
+ 
     public double getVariableCost() {
         return variableCost;
     }
@@ -51,5 +56,13 @@ public class Cost {
     }
      
     */
+
+    public int getVia() {
+        return via;
+    }
+
+    public void setVia(int via) {
+        this.via = via;
+    }
     
 }

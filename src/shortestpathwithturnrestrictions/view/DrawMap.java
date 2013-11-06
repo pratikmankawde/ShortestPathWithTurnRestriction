@@ -79,8 +79,10 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
     
         graphicsObj.setColor(Color.RED);
         for (int i = 0; i < vertexNodes.size(); i++) {
+           // graphicsObj.setColor(Color.red);
             graphicsObj.fill(vertexNodes.get(i));
-       //     graphicsObj.drawString(""+i, (float)vertexNodes.get(i).getMaxX(),(float) vertexNodes.get(i).getMinY());
+          //  graphicsObj.setColor(Color.black);
+           graphicsObj.drawString(""+i, (float)vertexNodes.get(i).getMaxX(),(float) vertexNodes.get(i).getMinY());
         }
         
         
@@ -176,11 +178,13 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
             System.out.println(i + "th Point selected.");
             if (sourceVertex == i) {
                 sourceVertex = -1;
+                shortestPath =null;
             } else if (sourceVertex != -1) {
                 if (destinationVertex != i && destinationVertex!=sourceVertex) {
                     destinationVertex = i;
                 } else {
                     destinationVertex = -1;
+                    shortestPath =null;
                 }
             } else if(destinationVertex != i) {
                 sourceVertex = i;
