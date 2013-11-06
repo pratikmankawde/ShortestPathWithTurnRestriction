@@ -73,14 +73,14 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         for (RoadFragment road : roads) {
             graphicsObj.drawPolyline(road.getX(), road.getY(), road.getX().length);
             nodeNo++;
-            graphicsObj.drawString(""+(int)(road.getCostObj().getFizedCost()*100), road.getX()[road.getX().length-1]+10, road.getY()[road.getX().length-1]+5);
+       //     graphicsObj.drawString(""+(int)(road.getCostObj().getFizedCost()*100), road.getX()[road.getX().length-1]+10, road.getY()[road.getX().length-1]+5);
             graphicsObj.setColor(new Color((47 * nodeNo) % 255, (3 * nodeNo * nodeNo) % 255, (73 * nodeNo) % 255));
         }
     
         graphicsObj.setColor(Color.RED);
         for (int i = 0; i < vertexNodes.size(); i++) {
             graphicsObj.fill(vertexNodes.get(i));
-            graphicsObj.drawString(""+i, (float)vertexNodes.get(i).getMaxX(),(float) vertexNodes.get(i).getMinY());
+       //     graphicsObj.drawString(""+i, (float)vertexNodes.get(i).getMaxX(),(float) vertexNodes.get(i).getMinY());
         }
         
         
@@ -185,17 +185,22 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
             } else if(destinationVertex != i) {
                 sourceVertex = i;
             }
+            
+            if(sourceVertex!=-1 && destinationVertex!=-1){
+           // shortestPathStr= dataProcessor.calculateShortestPath(sourceVertex, destinationVertex);
+            decodePath(dataProcessor.calculateShortestPath(sourceVertex, destinationVertex));
+            }
+        else
+            shortestPathStr = null;
+            
+             repaint();
+             
         } else {
             System.out.println("No point selected.");
         }
         
-        if(sourceVertex!=-1 && destinationVertex!=-1){
-           // shortestPathStr= dataProcessor.calculateShortestPath(sourceVertex, destinationVertex);
-            decodePath(dataProcessor.calculateShortestPath(sourceVertex, destinationVertex));
-        }
-        else
-            shortestPathStr = null;
-        repaint();
+        
+       
     }
 
     public void decodePath(String[] pathStr){
