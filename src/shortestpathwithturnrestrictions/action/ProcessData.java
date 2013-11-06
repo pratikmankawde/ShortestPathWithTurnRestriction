@@ -4,13 +4,14 @@
  */
 package shortestpathwithturnrestrictions.action;
 
-import java.awt.Cursor;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Hashtable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import shortestpathwithturnrestrictions.model.GraphModel;
+import shortestpathwithturnrestrictions.model.Turn;
 import shortestpathwithturnrestrictions.utility.CostCalculations;
 import shortestpathwithturnrestrictions.utility.MySAXParser;
 import shortestpathwithturnrestrictions.view.DrawMap;
@@ -44,7 +45,7 @@ public class ProcessData {
 
             gModel = new GraphModel(noOfNodes);
             gModel.fillAdjMat(fileLoader.getRoads());
-
+            gModel.setTurnRestrictions(new Hashtable<Integer, Turn>());
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -58,18 +59,21 @@ public class ProcessData {
 
     }
 
-    public int[] calculateShortestPath(int source, int destination) {
+    public String[] calculateShortestPath(int source, int destination) {
 
 
         BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
-        int[] shortestPath = bfsp.findShortestPath(source, destination);
-        int i = destination;
-        System.out.print(gModel.getNoOfNodes() + ":" + i + "->");
-        while (i != source && shortestPath[i]!=-1 ) {
-            System.out.print(shortestPath[i] + "->");
-            i = shortestPath[i];
-        }
-
-        return shortestPath;
+       // int[] shortestPath = bfsp.findShortestPath(source, destination);
+      //  String[] shortestPathStr = bfsp.findShortestPath(source, destination);
+//        int i = destination;
+//        System.out.print(gModel.getNoOfNodes() + ":" + i + "->");
+//        while (i != source && shortestPath[i]!=-1 ) {
+//            System.out.print(shortestPath[i] + "->");
+//            i = shortestPath[i];
+//        }
+        
+        
+        
+        return bfsp.findShortestPath(source, destination);
     }
 }

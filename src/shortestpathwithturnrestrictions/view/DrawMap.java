@@ -12,7 +12,6 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -37,8 +36,8 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
     private ArrayList<Long> vertexIds;
     private Image sourceMarker, destinationMarker;
     private ProcessData dataProcessor;
-    private int[] shortestPath=null;
-    
+    private String[] shortestPathStr=null;
+    private ArrayList<Integer> shortestPath=null;
     private int sourceVertex = -1;
     private int destinationVertex = -1;
 
@@ -74,32 +73,45 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         for (RoadFragment road : roads) {
             graphicsObj.drawPolyline(road.getX(), road.getY(), road.getX().length);
             nodeNo++;
+            graphicsObj.drawString(""+(int)(road.getCostObj().getFizedCost()*100), road.getX()[road.getX().length-1]+10, road.getY()[road.getX().length-1]+5);
             graphicsObj.setColor(new Color((47 * nodeNo) % 255, (3 * nodeNo * nodeNo) % 255, (73 * nodeNo) % 255));
         }
     
         graphicsObj.setColor(Color.RED);
         for (int i = 0; i < vertexNodes.size(); i++) {
             graphicsObj.fill(vertexNodes.get(i));
+            graphicsObj.drawString(""+i, (float)vertexNodes.get(i).getMaxX(),(float) vertexNodes.get(i).getMinY());
         }
+        
         
         
         if(shortestPath!=null){
+            
         graphicsObj.setStroke(new BasicStroke(4f));
         graphicsObj.setColor(Color.black);
-        int i = destinationVertex;
-
-        while (i != sourceVertex && shortestPath[i]!=-1) {
-            graphicsObj.drawLine((int)vertexNodes.get(i).getCenterX(),(int) vertexNodes.get(i).getCenterY(), (int)vertexNodes.get(shortestPath[i]).getCenterX(),(int) vertexNodes.get(shortestPath[i]).getCenterY());
-            i = shortestPath[i];
+ 
+//      int i = destinationVertex;                
+//        while (i != sourceVertex && shortestPathStr[i].length()!=0) {
+//            System.out.println(shortestPathStr[i]);
+//            int value = Integer.parseInt(shortestPathStr[i].substring(shortestPathStr[i].lastIndexOf(";")+1));
+//            System.out.println("Value:"+value);
+//            graphicsObj.drawLine((int)vertexNodes.get(i).getCenterX(),(int) vertexNodes.get(i).getCenterY(), (int)vertexNodes.get(value).getCenterX(),(int) vertexNodes.get(value).getCenterY());
+//            shortestPathStr[i] = shortestPathStr[i].substring(0, shortestPathStr[i].lastIndexOf(";"));
+//            i = value;
+//        }
+//        
+         for (int k=1 ; k< shortestPath.size();k++) {
+   //         System.out.println(k);
+            graphicsObj.drawLine((int)vertexNodes.get(shortestPath.get(k-1)).getCenterX(),(int) vertexNodes.get(shortestPath.get(k-1)).getCenterY(), (int)vertexNodes.get(shortestPath.get(k)).getCenterX(),(int) vertexNodes.get(shortestPath.get(k)).getCenterY());
         }
-
+        
         }
         
         if (sourceVertex != -1) {
-            graphicsObj.drawImage(sourceMarker, (int) (vertexNodes.get(sourceVertex).getCenterX() - sourceMarker.getWidth(null) / 2), (int) (vertexNodes.get(sourceVertex).getCenterY() - sourceMarker.getHeight(null) / 2), null);
+            graphicsObj.drawImage(sourceMarker, (int) (vertexNodes.get(sourceVertex).getCenterX() - sourceMarker.getWidth(null) / 2), (int) (vertexNodes.get(sourceVertex).getCenterY() - sourceMarker.getHeight(this) / 2), this);
         }
         if (destinationVertex != -1) {
-            graphicsObj.drawImage(destinationMarker, (int) (vertexNodes.get(destinationVertex).getCenterX() - destinationMarker.getWidth(null) / 2), (int) (vertexNodes.get(destinationVertex).getCenterY() - destinationMarker.getHeight(null) / 2), null);
+            graphicsObj.drawImage(destinationMarker, (int) (vertexNodes.get(destinationVertex).getCenterX() - destinationMarker.getWidth(null) / 2), (int) (vertexNodes.get(destinationVertex).getCenterY() - destinationMarker.getHeight(this) / 2), this);
         }
         
     }
@@ -161,7 +173,7 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         }
 
         if (pointSelected) {
-            System.out.println(i + "th Point selected."+vertexIds.get(i));
+            System.out.println(i + "th Point selected.");
             if (sourceVertex == i) {
                 sourceVertex = -1;
             } else if (sourceVertex != -1) {
@@ -178,13 +190,36 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         }
         
         if(sourceVertex!=-1 && destinationVertex!=-1){
-            shortestPath = dataProcessor.calculateShortestPath(sourceVertex, destinationVertex);
+           // shortestPathStr= dataProcessor.calculateShortestPath(sourceVertex, destinationVertex);
+            decodePath(dataProcessor.calculateShortestPath(sourceVertex, destinationVertex));
         }
         else
-            shortestPath = null;
+            shortestPathStr = null;
         repaint();
     }
 
+    public void decodePath(String[] pathStr){
+    
+        int i = destinationVertex;       
+        
+        if(shortestPath==null)
+        shortestPath = new ArrayList<Integer>();
+        else
+        shortestPath.clear();
+        shortestPath.add(i);
+        while (i != sourceVertex && pathStr[i].length()!=0) {
+        //    System.out.println(pathStr[i]);
+            int value = Integer.parseInt(pathStr[i].substring(pathStr[i].lastIndexOf(";")+1));
+       //     System.out.println("Value:"+value);
+            shortestPath.add(value);
+       //     graphicsObj.drawLine((int)vertexNodes.get(i).getCenterX(),(int) vertexNodes.get(i).getCenterY(), (int)vertexNodes.get(value).getCenterX(),(int) vertexNodes.get(value).getCenterY());
+            pathStr[i] = pathStr[i].substring(0, pathStr[i].lastIndexOf(";"));
+            i = value;
+        }
+            
+        
+    }
+    
     @Override
     public void mousePressed(MouseEvent e) {
     }

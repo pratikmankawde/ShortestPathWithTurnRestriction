@@ -16,9 +16,10 @@ public class GraphModel {
 
     Cost[][] adjMat;
     int noOfNodes;
-    CostCalculations costCalculator = new CostCalculations();
+    CostCalculations costCalculator;
     Hashtable<Long, Integer> vertices;
     
+    Hashtable<Integer, Turn> TurnRestrictions;
    
     public GraphModel(int noOfNodes ){
 
@@ -37,7 +38,7 @@ public class GraphModel {
     public Cost[][] fillAdjMat(ArrayList<RoadFragment> edges) {
 
         int count = 0, indexi, indexj;
-        vertices = new Hashtable<>();
+        vertices = new Hashtable<Long, Integer>();
         NodeModel node1, node2;
         this.adjMat = new Cost[noOfNodes][noOfNodes];
         
@@ -123,6 +124,16 @@ public class GraphModel {
 
 
 
+    }
+
+    public Hashtable<Integer, Turn> getTurnRestrictions() {
+        return TurnRestrictions;
+    }
+
+    public void setTurnRestrictions(Hashtable<Integer, Turn> TurnRestrictions) {
+        this.TurnRestrictions = TurnRestrictions;
+     //   this.TurnRestrictions.put(0, new Turn(5,1,null)); //5->1
+     //   this.TurnRestrictions.put(2, new Turn(3,15,null)); //5->15
     }
 
     public Cost[][] getAdjMat() {
