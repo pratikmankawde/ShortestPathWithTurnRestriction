@@ -21,6 +21,8 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import javax.swing.SwingWorker;
 import javax.swing.event.MouseInputListener;
 import shortestpathwithturnrestrictions.action.ProcessData;
 import shortestpathwithturnrestrictions.model.RoadFragment;
@@ -40,7 +42,8 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
     private ArrayList<Integer> shortestPath=null;
     private int sourceVertex = -1;
     private int destinationVertex = -1;
-
+    SwingWorker<String[], Void> pathComputer;
+    private boolean pathCalculationDone = false;
     public DrawMap(ArrayList<RoadFragment> roads, ProcessData dataProcessor) {
         // TODO Auto-generated constructor stub
         this.roads = roads;
@@ -153,6 +156,35 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         sourceMarker = Toolkit.getDefaultToolkit().getImage("sourceMarker.png");
         destinationMarker = Toolkit.getDefaultToolkit().getImage("destinationMarker.png");
         
+        
+        /** SwingWorker instance to run a compute-intensive task 
+          Final result is String[], no intermediate result (Void) */
+      pathComputer = new SwingWorker<String[], Void>() {
+         /** Schedule a compute-intensive task in a background thread */
+         @Override
+         protected String[] doInBackground() throws Exception {
+             
+            return dataProcessor.calculateShortestPath(sourceVertex, destinationVertex);
+         }
+ 
+         /** Run in event-dispatching thread after doInBackground() completes */
+         @Override
+         protected void done() {
+            try {
+               // Use get() to get the result of doInBackground()
+               decodePath(get());
+               pathCalculationDone = true;
+               repaint();
+            } catch (InterruptedException e) {
+               e.printStackTrace();
+            } catch (ExecutionException e) {
+               e.printStackTrace();
+            }
+         }
+      };
+        
+        
+        
     }
 
     @Override
@@ -193,7 +225,10 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
             
             if(sourceVertex!=-1 && destinationVertex!=-1){
            // shortestPathStr= dataProcessor.calculateShortestPath(sourceVertex, destinationVertex);
-            decodePath(dataProcessor.calculateShortestPath(sourceVertex, destinationVertex));
+                if(pathCalculationDone)
+                 decodePath(dataProcessor.calculateShortestPath(sourceVertex, destinationVertex));
+                else
+                pathComputer.execute();
             }
         else
             shortestPath = null;

@@ -41,13 +41,12 @@ public class CostCalculations {
     }
 
     public double getDistanceFromLatLonInKm(double lat1, double lon1, double lat2, double lon2) {
-        // Radius of the earth in km
         double differenceInLatitude = Math.toRadians(lat2 - lat1);
         double differenceInLongitude = Math.toRadians(lon2 - lon1);
-        double a = Math.sin(differenceInLatitude / 2) * Math.sin(differenceInLatitude / 2)
-                + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
-                * Math.sin(differenceInLongitude / 2) * Math.sin(differenceInLongitude / 2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        double a = Math.pow(Math.sin(differenceInLatitude *0.5), 2.0)
+                    + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
+                        * Math.pow(Math.sin(differenceInLongitude *0.5),2.0);
+        double c = 2.0 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         double distance = Constants.radiusOfEarth * c; // Distance in km
         return distance;
     }

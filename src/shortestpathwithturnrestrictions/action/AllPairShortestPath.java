@@ -4,6 +4,7 @@
  */
 package shortestpathwithturnrestrictions.action;
 
+import java.util.Date;
 import shortestpathwithturnrestrictions.model.Cost;
 import shortestpathwithturnrestrictions.model.GraphModel;
 
@@ -30,7 +31,7 @@ public class AllPairShortestPath {
         /* use this function to get adjacency matrix, store it in some variable or
          use directly and calculate shortest path. Return it in the form of any data structure/object
          */
-
+        System.out.println(new Date().toString());
         pathStr = new String[noOfNodes];
         
         for (int j = 0; j < noOfNodes; j++) {
@@ -62,22 +63,26 @@ public class AllPairShortestPath {
 
         }
 
-        getIntermediatVertex(source, matrix[source][destination].getVia(), destination);
-
+        
      //   System.out.println("path calculated");
 
+        System.out.println(new Date().toString());
         return pathStr;
 
     }
 
     public String[] getPathStr(int source, int destination) {
-        if(pathStr==null) {       
-        return findShortestPath(source, destination);
+        if(pathStr==null) {  
+            findShortestPath(source, destination);
+            System.gc();
+            getIntermediatVertex(source, matrix[source][destination].getVia(), destination);
+
+        return pathStr;
         }
         else{
-//            for (int j = 0; j < noOfNodes; j++) {
-//            pathStr[j] = "";
-//            }
+            for (int j = 0; j < noOfNodes; j++) {
+            pathStr[j] = "";
+            }
             getIntermediatVertex(source, matrix[source][destination].getVia(), destination);
             return pathStr;
         }

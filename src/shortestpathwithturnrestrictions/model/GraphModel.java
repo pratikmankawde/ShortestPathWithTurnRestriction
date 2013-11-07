@@ -83,7 +83,15 @@ public class GraphModel {
 
         adjMat[indexi][indexj] = new Cost(0.0);
         adjMat[indexj][indexi] = new Cost(0.0);
-        adjMat[indexi][indexj].setFizedCost(Math.abs(node2.getCostObj().getFizedCost() - node1.getCostObj().getFizedCost()) * Constants.scaler);
+        
+        double diff = node2.getCostObj().getFizedCost() - node1.getCostObj().getFizedCost();
+        
+        if(diff>0)
+        diff*= Constants.scaler;
+        else
+        diff = diff * (-1)* Constants.scaler;
+        
+        adjMat[indexi][indexj].setFizedCost(diff);
         adjMat[indexj][indexi].setFizedCost(adjMat[indexi][indexj].getFizedCost());
 
         adjMat[indexi][indexi] = new Cost(0.0);
@@ -132,8 +140,8 @@ public class GraphModel {
 
     public void setTurnRestrictions(Hashtable<Integer, Turn> TurnRestrictions) {
         this.TurnRestrictions = TurnRestrictions;
-        this.TurnRestrictions.put(0, new Turn(5,1,null)); //5->1
-        this.TurnRestrictions.put(2, new Turn(3,15,null)); //5->15
+     //   this.TurnRestrictions.put(0, new Turn(5,1,null)); //5->1
+     //   this.TurnRestrictions.put(2, new Turn(3,15,null)); //5->15
     }
 
     public Cost[][] getAdjMat() {

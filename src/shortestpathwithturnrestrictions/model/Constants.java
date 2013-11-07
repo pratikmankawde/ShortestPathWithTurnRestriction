@@ -11,7 +11,7 @@ package shortestpathwithturnrestrictions.model;
 public class Constants {
     
    public static int scaler = 1000;
-   public static double radiusOfEarth = 6371;
+   public static double radiusOfEarth = 6378.137; //in kms
     
     
 }
