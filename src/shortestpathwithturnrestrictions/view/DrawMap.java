@@ -48,7 +48,7 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
         this.addKeyListener(this);
-        init();
+        
         this.dataProcessor=dataProcessor;
     }
 
@@ -130,7 +130,8 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         
         moveX = this.getWidth() / 2;
         moveY = this.getHeight() / 2;
-
+        
+        init();
     }
 
     public void init() {
@@ -195,7 +196,7 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
             decodePath(dataProcessor.calculateShortestPath(sourceVertex, destinationVertex));
             }
         else
-            shortestPathStr = null;
+            shortestPath = null;
             
              repaint();
              

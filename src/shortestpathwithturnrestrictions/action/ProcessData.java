@@ -26,7 +26,7 @@ public class ProcessData {
     private MySAXParser fileLoader;
     private GraphModel gModel;
     private int noOfNodes;
-
+    private AllPairShortestPath apsp;
     public ProcessData(File mapDataFile) {
 
         this.mapDataFile = mapDataFile;
@@ -63,7 +63,8 @@ public class ProcessData {
 
 
      //   BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
-        AllPairShortestPath apsp = new AllPairShortestPath(gModel);
+        if(apsp==null)
+        apsp = new AllPairShortestPath(gModel);
        // int[] shortestPath = bfsp.findShortestPath(source, destination);
       //  String[] shortestPathStr = bfsp.findShortestPath(source, destination);
 //        int i = destination;

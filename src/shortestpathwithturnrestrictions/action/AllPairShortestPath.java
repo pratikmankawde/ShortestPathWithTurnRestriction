@@ -4,13 +4,10 @@
  */
 package shortestpathwithturnrestrictions.action;
 
-import java.util.ArrayList;
 import shortestpathwithturnrestrictions.model.Cost;
 import shortestpathwithturnrestrictions.model.GraphModel;
-import shortestpathwithturnrestrictions.utility.QueueImplementation;
 
-/**
- *
+/*
  * @author PprrATeekK
  */
 public class AllPairShortestPath {
@@ -58,7 +55,7 @@ public class AllPairShortestPath {
                     if (matrix[i][k].getFizedCost() + matrix[k][j].getFizedCost() < matrix[i][j].getFizedCost()) {
                         matrix[i][j].setFizedCost(matrix[i][k].getFizedCost() + matrix[k][j].getFizedCost());
                         matrix[i][j].setVia(k);
-                    //    System.out.println("source:"+i+" via:"+k+" destination:"+j);
+                    //    System.out.println("algo:source:"+i+" via:"+k+" destination:"+j);
                     }
                 }
             }
@@ -74,12 +71,13 @@ public class AllPairShortestPath {
     }
 
     public String[] getPathStr(int source, int destination) {
-        if(pathStr==null)            
+        if(pathStr==null) {       
         return findShortestPath(source, destination);
+        }
         else{
-            for (int j = 0; j < noOfNodes; j++) {
-            pathStr[j] = "";
-            }
+//            for (int j = 0; j < noOfNodes; j++) {
+//            pathStr[j] = "";
+//            }
             getIntermediatVertex(source, matrix[source][destination].getVia(), destination);
             return pathStr;
         }
@@ -105,7 +103,7 @@ public class AllPairShortestPath {
 //        if(via == -1)
 //            return;
 //       
-    //    System.out.println("source:"+source+" via:"+via+" destination:"+destination);
+   //   System.out.println("source:"+source+" via:"+via+" destination:"+destination);
       getIntermediatVertex(source,matrix[source][via].getVia(),via);
         
       getIntermediatVertex(via,matrix[via][destination].getVia(),destination);
