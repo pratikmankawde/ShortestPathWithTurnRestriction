@@ -64,13 +64,10 @@
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="90" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lStatus" max="32767" attributes="0"/>
-                      <Component id="tfFileName" pref="187" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="tfFileName" min="-2" pref="187" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btBrowse" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -83,9 +80,7 @@
                       <Component id="tfFileName" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="btBrowse" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="139" max="32767" attributes="0"/>
-                  <Component id="lStatus" min="-2" pref="28" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace pref="198" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -108,8 +103,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btBrowseActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lStatus">
         </Component>
       </SubComponents>
     </Container>

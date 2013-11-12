@@ -102,7 +102,7 @@ public class GraphModel {
         return status;
     }
 
-    void printCostMatrix() {
+    public void printCostMatrix() {
 
         //Print cost matrix
         System.out.print("\t");
@@ -115,7 +115,7 @@ public class GraphModel {
             System.out.print(i + "\t");
             for (int j = 0; j < noOfNodes; j++) {
                 if (adjMat[i][j] != null) {
-                    System.out.print((int) (adjMat[i][j].getFizedCost()) + "\t");
+                    System.out.print((int) (adjMat[i][j].getFizedCost())+":"+adjMat[i][j].getVia() + "\t");
                     count++;
                 } else {
                     System.out.print("*\t");
@@ -140,8 +140,8 @@ public class GraphModel {
 
     public void setTurnRestrictions(Hashtable<Integer, Turn> TurnRestrictions) {
         this.TurnRestrictions = TurnRestrictions;
-     //   this.TurnRestrictions.put(0, new Turn(5,1,null)); //5->1
-     //   this.TurnRestrictions.put(2, new Turn(3,15,null)); //5->15
+        this.TurnRestrictions.put(0, new Turn(5,1,null)); //5->1
+        this.TurnRestrictions.put(2, new Turn(3,15,null)); //5->15
     }
 
     public Cost[][] getAdjMat() {

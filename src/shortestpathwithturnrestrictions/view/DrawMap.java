@@ -38,7 +38,6 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
     private ArrayList<Long> vertexIds;
     private Image sourceMarker, destinationMarker;
     private ProcessData dataProcessor;
-    private String[] shortestPathStr=null;
     private ArrayList<Integer> shortestPath=null;
     private int sourceVertex = -1;
     private int destinationVertex = -1;
@@ -152,7 +151,8 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
                 }
             }
         }
-
+        vertexIds.clear();
+       
         sourceMarker = Toolkit.getDefaultToolkit().getImage("sourceMarker.png");
         destinationMarker = Toolkit.getDefaultToolkit().getImage("destinationMarker.png");
         
