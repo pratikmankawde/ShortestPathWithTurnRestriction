@@ -81,8 +81,8 @@ public class GraphModel {
     public boolean setCostAtIndices(int indexi, int indexj, NodeModel node1, NodeModel node2) {
         boolean status = false;
 
-        adjMat[indexi][indexj] = new Cost(0.0);
-        adjMat[indexj][indexi] = new Cost(0.0);
+        adjMat[indexi][indexj] = new Cost(0.0f);
+        adjMat[indexj][indexi] = new Cost(0.0f);
         
         double diff = node2.getCostObj().getFizedCost() - node1.getCostObj().getFizedCost();
         
@@ -91,13 +91,13 @@ public class GraphModel {
         else
         diff = diff * (-1)* Constants.scaler;
         
-        adjMat[indexi][indexj].setFizedCost(diff);
-        adjMat[indexj][indexi].setFizedCost(adjMat[indexi][indexj].getFizedCost());
+        adjMat[indexi][indexj].setFizedCost((float)diff);
+        adjMat[indexj][indexi].setFizedCost((float)adjMat[indexi][indexj].getFizedCost());
 
-        adjMat[indexi][indexi] = new Cost(0.0);
-        adjMat[indexj][indexj] = new Cost(0.0);
-        adjMat[indexi][indexi].setFizedCost(0.0);
-        adjMat[indexj][indexj].setFizedCost(0.0);
+        adjMat[indexi][indexi] = new Cost(0.0f);
+        adjMat[indexj][indexj] = new Cost(0.0f);
+        adjMat[indexi][indexi].setFizedCost(0.0f);
+        adjMat[indexj][indexj].setFizedCost(0.0f);
 
         return status;
     }

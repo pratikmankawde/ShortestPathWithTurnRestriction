@@ -21,6 +21,8 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import javax.swing.SwingWorker;
 import javax.swing.event.MouseInputListener;
@@ -36,13 +38,15 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
     private double endX = 0.0, endY = 0.0, moveX, moveY;
     private ArrayList<Ellipse2D> vertexNodes;
     private ArrayList<Long> vertexIds;
-    private Image sourceMarker, destinationMarker;
+    private Image sourceMarker, destinationMarker, turnRestrictionMarker;
     private ProcessData dataProcessor;
     private ArrayList<Integer> shortestPath=null;
     private int sourceVertex = -1;
     private int destinationVertex = -1;
     SwingWorker<String[], Void> pathComputer;
     private boolean pathCalculationDone = false;
+    private Set<Integer> turns;
+    
     public DrawMap(ArrayList<RoadFragment> roads, ProcessData dataProcessor) {
         // TODO Auto-generated constructor stub
         this.roads = roads;
@@ -79,17 +83,8 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
             graphicsObj.setColor(new Color((47 * nodeNo) % 255, (3 * nodeNo * nodeNo) % 255, (73 * nodeNo) % 255));
         }
     
-        graphicsObj.setColor(Color.RED);
-        for (int i = 0; i < vertexNodes.size(); i++) {
-           // graphicsObj.setColor(Color.red);
-            graphicsObj.fill(vertexNodes.get(i));
-          //  graphicsObj.setColor(Color.black);
-           graphicsObj.drawString(""+i, (float)vertexNodes.get(i).getMaxX(),(float) vertexNodes.get(i).getMinY());
-        }
         
-        
-        
-        if(shortestPath!=null){
+         if(shortestPath!=null){
             
         graphicsObj.setStroke(new BasicStroke(4f));
         graphicsObj.setColor(Color.black);
@@ -111,11 +106,30 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         
         }
         
+        
+        graphicsObj.setColor(Color.RED);
+        for (int i = 0; i < vertexNodes.size(); i++) {
+            if(turns.contains(i)){
+            //graphicsObj.setColor(Color.GREEN);
+           // graphicsObj.fill(vertexNodes.get(i));
+           // graphicsObj.setColor(Color.RED);
+               graphicsObj.drawImage(turnRestrictionMarker, (int) (vertexNodes.get(i).getCenterX() - turnRestrictionMarker.getWidth(this) / 2), (int) (vertexNodes.get(i).getCenterY() - turnRestrictionMarker.getHeight(this)), this);
+            }
+            else
+              graphicsObj.fill(vertexNodes.get(i));
+          //  graphicsObj.setColor(Color.black);
+           graphicsObj.drawString(""+i, (float)vertexNodes.get(i).getMaxX(),(float) vertexNodes.get(i).getMinY());
+        }
+        
+        
+        
+       
+        
         if (sourceVertex != -1) {
-            graphicsObj.drawImage(sourceMarker, (int) (vertexNodes.get(sourceVertex).getCenterX() - sourceMarker.getWidth(null) / 2), (int) (vertexNodes.get(sourceVertex).getCenterY() - sourceMarker.getHeight(this) / 2), this);
+            graphicsObj.drawImage(sourceMarker, (int) (vertexNodes.get(sourceVertex).getCenterX() - sourceMarker.getWidth(null) / 2), (int) (vertexNodes.get(sourceVertex).getCenterY() - sourceMarker.getHeight(this)), this);
         }
         if (destinationVertex != -1) {
-            graphicsObj.drawImage(destinationMarker, (int) (vertexNodes.get(destinationVertex).getCenterX() - destinationMarker.getWidth(null) / 2), (int) (vertexNodes.get(destinationVertex).getCenterY() - destinationMarker.getHeight(this) / 2), this);
+            graphicsObj.drawImage(destinationMarker, (int) (vertexNodes.get(destinationVertex).getCenterX() - destinationMarker.getWidth(null) / 2), (int) (vertexNodes.get(destinationVertex).getCenterY() - destinationMarker.getHeight(this)), this);
         }
         
     }
@@ -141,7 +155,9 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         vertexNodes = new ArrayList<Ellipse2D>();
         vertexIds = new ArrayList<Long>();
         long temp;
-        float radius = 5;
+                float radius = 5.0f;
+                turns =dataProcessor.getgModel().getTurnRestrictions().keySet();
+                
         for (RoadFragment road : roads) {
             for (int i = 0; i < road.getX().length; i++) {
                 temp = road.getPoints().get(i).getId();
@@ -153,9 +169,9 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         }
         vertexIds.clear();
        
-        sourceMarker = Toolkit.getDefaultToolkit().getImage("sourceMarker.png");
-        destinationMarker = Toolkit.getDefaultToolkit().getImage("destinationMarker.png");
-        
+        sourceMarker = Toolkit.getDefaultToolkit().getImage("sourceMarker.gif");
+        destinationMarker = Toolkit.getDefaultToolkit().getImage("destinationMarker.gif");
+        turnRestrictionMarker = Toolkit.getDefaultToolkit().getImage("turnRestrictionMarker.gif");
         
         /** SwingWorker instance to run a compute-intensive task 
           Final result is String[], no intermediate result (Void) */
@@ -252,7 +268,7 @@ public class DrawMap extends JPanel implements MouseInputListener, MouseWheelLis
         else
         shortestPath.clear();
         shortestPath.add(i);
-        while (i != sourceVertex && pathStr[i].length()!=0) {
+        while (i != sourceVertex &&  i!=-1 && pathStr[i].length()!=0) {
         //    System.out.println(pathStr[i]);
             int value = Integer.parseInt(pathStr[i].substring(pathStr[i].lastIndexOf(";")+1));
        //     System.out.println("Value:"+value);

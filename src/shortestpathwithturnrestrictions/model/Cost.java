@@ -17,7 +17,6 @@ public class Cost {
     
     
     
-    
     public Cost(double fixedCost){
     
         this.fizedCost = fixedCost;

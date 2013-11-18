@@ -38,6 +38,7 @@ public class ProcessData {
         try {
             fileLoader = new MySAXParser(new FileInputStream(mapDataFile));
             new CostCalculations().setCosts(fileLoader.getRoads());     // Find cost of road fragments
+          
             fileLoader.removeRedundantVertises(); //Remove all vertices except junctions and end points
             fileLoader.setIntRoadCoord();   // initialize integer vertices to draw maps
             noOfNodes = fileLoader.getNodes().size();
@@ -59,10 +60,18 @@ public class ProcessData {
 
     }
 
+    public GraphModel getgModel() {
+        return gModel;
+    }
+
+    public void setgModel(GraphModel gModel) {
+        this.gModel = gModel;
+    }
+
     public String[] calculateShortestPath(int source, int destination) {
 
 
-     //   BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
+       // BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
         if(apsp==null)
         apsp = new AllPairShortestPath(gModel);
        // int[] shortestPath = bfsp.findShortestPath(source, destination);
@@ -73,9 +82,11 @@ public class ProcessData {
 //            System.out.print(shortestPath[i] + "->");
 //            i = shortestPath[i];
 //        }
+//        
         
-        
+     //   Dijkstra dsp =  new Dijkstra(gModel);
+     //   return dsp.findShortestPath(source, destination);
         return apsp.getPathStr(source, destination);
-       // return bfsp.findShortestPath(source, destination);
+      //  return bfsp.findShortestPath(source, destination);
     }
 }

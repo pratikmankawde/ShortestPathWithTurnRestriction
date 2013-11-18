@@ -58,7 +58,7 @@ public class BellmanFordShortestPath {
 
             for (int x = 0; x < graph.getNoOfNodes(); x++) {
                 if (x != skipVertex && matrix[k][x] != null && matrix[k][x].getFizedCost() != 0) {
-                       System.out.println("Processing:"+k+"->"+x);
+               //        System.out.println("Processing:"+k+"->"+x);
                     dist = distance.get(k).doubleValue() + matrix[k][x].getFizedCost();
                     if (distance.get(x).doubleValue() > dist ) {
                         distance.set(x, dist);
@@ -72,7 +72,7 @@ public class BellmanFordShortestPath {
                         if (!que.checkEntry(new Integer(x))) {
                             que.enqueue(x);
                         }
-                                 System.out.println("Shorter path found, Updated:"+k+"->"+x+" path to "+x+":"+pathStr[x]);
+                    //             System.out.println("Shorter path found, Updated:"+k+"->"+x+" path to "+x+":"+pathStr[x]);
                     }
                     else if (updatables[x] == 1) {
                         distance.set(x, dist);
@@ -82,7 +82,7 @@ public class BellmanFordShortestPath {
                         if (!que.checkEntry(new Integer(x))) {
                             que.enqueue(x);
                         }
-                                 System.out.println("Another option found, Updated:"+k+"->"+x);
+                    //             System.out.println("Another option found, Updated:"+k+"->"+x);
                     }
                 }
             }
