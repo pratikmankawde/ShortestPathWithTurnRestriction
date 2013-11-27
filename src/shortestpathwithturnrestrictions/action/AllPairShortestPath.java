@@ -17,13 +17,13 @@ public class AllPairShortestPath {
     Cost[][] matrix;
     String[] pathStr = null;
     int noOfNodes;
-    int[] updatables;
+  //  int[] updatables;
     double totalCost=0.0;
     public AllPairShortestPath(GraphModel graph) {
         this.graph = graph;
         matrix = graph.getAdjMat();
         noOfNodes = graph.getNoOfNodes();
-        updatables = new int[noOfNodes];
+      //  updatables = new int[noOfNodes];
     }
 
     public String[] findShortestPath(int source, int destination) {
@@ -70,7 +70,8 @@ public class AllPairShortestPath {
                     }
                 }
             }
-
+          //  System.out.println(k+" nodes done."); //Fri Nov 22 18:57:54 IST 2013
+                                                    //Fri Nov 22 19:30:42 IST 2013
         }
 
 

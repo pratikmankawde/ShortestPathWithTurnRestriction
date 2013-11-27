@@ -71,9 +71,9 @@ public class ProcessData {
     public String[] calculateShortestPath(int source, int destination) {
 
 
-       // BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
-        if(apsp==null)
-        apsp = new AllPairShortestPath(gModel);
+        
+      //  if(apsp==null)
+     //   apsp = new AllPairShortestPath(gModel);
        // int[] shortestPath = bfsp.findShortestPath(source, destination);
       //  String[] shortestPathStr = bfsp.findShortestPath(source, destination);
 //        int i = destination;
@@ -84,9 +84,20 @@ public class ProcessData {
 //        }
 //        
         
-     //   Dijkstra dsp =  new Dijkstra(gModel);
-     //   return dsp.findShortestPath(source, destination);
+        if(gModel.getNoOfNodes()>1000){
+        Dijkstra dsp =  new Dijkstra(gModel);
+        return dsp.findShortestPath(source, destination);
+        }
+        else if(gModel.getNoOfNodes()>700){
+        BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
+        return bfsp.findShortestPath(source, destination);
+        }
+        else{
+        if(apsp==null)
+        apsp = new AllPairShortestPath(gModel);
         return apsp.getPathStr(source, destination);
-      //  return bfsp.findShortestPath(source, destination);
+        }
+    //    BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
+     //   return bfsp.findShortestPath(source, destination);
     }
 }

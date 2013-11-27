@@ -20,15 +20,12 @@ public class Dijkstra {
     String[] pathStr = null;
     Cost[] minCosts;
     int noOfNodes;
-    int[] updatables;
     double totalCost = 0.0;
 
     public Dijkstra(GraphModel graph) {
         this.graph = graph;
         matrix = graph.getAdjMat();
         noOfNodes = graph.getNoOfNodes();
-        updatables = new int[noOfNodes];
-        minCosts = new Cost[noOfNodes];
     }
 
     public String[] findShortestPath(int source, int destination) {
@@ -38,7 +35,8 @@ public class Dijkstra {
          */
         System.out.println(new Date().toString());
         pathStr = new String[noOfNodes];
-
+        minCosts = new Cost[noOfNodes];
+        
         for (int j = 0; j < noOfNodes; j++) {
             pathStr[j] = "";
             minCosts[j] = new Cost(Double.POSITIVE_INFINITY);
@@ -55,6 +53,11 @@ public class Dijkstra {
             // Visit each edge exiting u
             for (int i = 0; i < noOfNodes; i++) {
                 if (matrix[u.id][i] != null) {
+                    
+                    if (graph.getTurnRestrictions().containsKey(u.id) && graph.getTurnRestrictions().get(u.id).getIncomingVertex() == minCosts[u.id].getVia() && graph.getTurnRestrictions().get(u.id).getOutgoingVertex() == i) {
+                        continue;
+                    }
+                    
                     double weight = matrix[u.id][i].getFizedCost();
                     double distanceThroughU = minCosts[u.id].getFizedCost() + weight;
                     if (distanceThroughU < minCosts[i].getFizedCost()) {
@@ -84,7 +87,7 @@ public class Dijkstra {
     public void setPathStr(int source, int destination) {
 
         int i = destination;
-        while (i != source && i!=-1 ) {
+        while (i != source && minCosts[i].getVia()!=-1 ) {
             pathStr[i] = ";" + minCosts[i].getVia();
             i = minCosts[i].getVia();
         }
@@ -93,7 +96,7 @@ public class Dijkstra {
     class vertex implements Comparable<vertex> {
 
         int id;
-        double minCost = Double.POSITIVE_INFINITY;
+        double minCost;
 
         public vertex(int id, double minCost) {
             this.id = id;
