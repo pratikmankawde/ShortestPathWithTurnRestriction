@@ -213,7 +213,7 @@ public class MySAXParser extends DefaultHandler {
     public void setNodes(Hashtable<Long, NodeModel> nodes) {
         this.nodes = nodes;
     }
-
+/*
     public static void main(String[] args) {
 
         File fl = new File("very small map.osm");
@@ -236,4 +236,6 @@ public class MySAXParser extends DefaultHandler {
             ex.printStackTrace();
         }
     }
+
+*/
 }

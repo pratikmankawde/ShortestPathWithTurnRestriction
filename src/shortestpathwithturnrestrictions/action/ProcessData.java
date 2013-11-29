@@ -84,19 +84,19 @@ public class ProcessData {
 //        }
 //        
         
-        if(gModel.getNoOfNodes()>1000){
+      //  if(gModel.getNoOfNodes()<1000){
         Dijkstra dsp =  new Dijkstra(gModel);
         return dsp.findShortestPath(source, destination);
-        }
-        else if(gModel.getNoOfNodes()>700){
-        BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
-        return bfsp.findShortestPath(source, destination);
-        }
-        else{
-        if(apsp==null)
-        apsp = new AllPairShortestPath(gModel);
-        return apsp.getPathStr(source, destination);
-        }
+    //    }
+//        else if(gModel.getNoOfNodes()>700){
+//        BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
+//        return bfsp.findShortestPath(source, destination);
+//        }
+//        else{
+//        if(apsp==null)
+//        apsp = new AllPairShortestPath(gModel);
+//        return apsp.getPathStr(source, destination);
+//        }
     //    BellmanFordShortestPath bfsp = new BellmanFordShortestPath(gModel);
      //   return bfsp.findShortestPath(source, destination);
     }

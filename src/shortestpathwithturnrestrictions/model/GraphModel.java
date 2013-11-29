@@ -140,10 +140,31 @@ public class GraphModel {
 
     public void setTurnRestrictions(Hashtable<Integer, Turn> TurnRestrictions) {
         this.TurnRestrictions = TurnRestrictions;
-        this.TurnRestrictions.put(0, new Turn(5,1,null)); //5->1
-        this.TurnRestrictions.put(42, new Turn(56,43,null)); //5->15
-    }
+    
+        /*
+        this.TurnRestrictions.put(28, new Turn(78,27,null)); // Small-map
+        this.TurnRestrictions.put(67, new Turn(29,68,null)); // Small-map
+        */
+     /*
+         this.TurnRestrictions.put(42, new Turn(41,56,null)); // medium-map
+         this.TurnRestrictions.put(60, new Turn(61,68,null)); // medium-map
+         this.TurnRestrictions.put(111, new Turn(131,112,null)); // medium-map
+         this.TurnRestrictions.put(50, new Turn(133,51,null)); // medium-map
+         this.TurnRestrictions.put(109, new Turn(108,106,null)); // medium-map
+         this.TurnRestrictions.put(43, new Turn(42,66,null)); // medium-map
+    */
+        //1773->853
+     /*    this.TurnRestrictions.put(632, new Turn(1792,631,null)); // medium-map
+         this.TurnRestrictions.put(1058, new Turn(1057,1664,null)); // medium-map
+         this.TurnRestrictions.put(576, new Turn(1623,575,null)); // medium-map
+         this.TurnRestrictions.put(60, new Turn(61,20,null)); // medium-map
+    */ //    this.TurnRestrictions.put(109, new Turn(108,106,null)); // medium-map
+      //   this.TurnRestrictions.put(43, new Turn(42,66,null)); // medium-map
+   
+        
+   }
 
+    
     public Cost[][] getAdjMat() {
         return adjMat;
     }

@@ -6,6 +6,10 @@ package shortestpathwithturnrestrictions.action;
 
 import java.awt.Cursor;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import shortestpathwithturnrestrictions.model.GraphModel;
@@ -41,7 +45,14 @@ public class MainUI extends javax.swing.JFrame {
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Map data file (.osm)", "osm","OSM");
         fchooser.addChoosableFileFilter(filter);
         fchooser.setCurrentDirectory(new File("."));
-
+        try {
+            setIconImage(ImageIO.read(getClass().getResource("/shortestpathwithturnrestrictions/images/ico.png")));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        setResizable(false);
+        setLocationRelativeTo(null);
+        
     }
 
     /*
@@ -58,6 +69,8 @@ public class MainUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         tfFileName = new javax.swing.JTextField();
         btBrowse = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        lback = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -71,12 +84,19 @@ public class MainUI extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Shortest Path With Turn Restrictions : Load File");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jLabel1.setText("Load data File");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(10, 20, 380, 20);
 
         tfFileName.setText("Select File..");
+        jPanel2.add(tfFileName);
+        tfFileName.setBounds(10, 100, 187, 29);
 
         btBrowse.setText("Browse");
         btBrowse.addActionListener(new java.awt.event.ActionListener() {
@@ -84,40 +104,26 @@ public class MainUI extends javax.swing.JFrame {
                 btBrowseActionPerformed(evt);
             }
         });
+        jPanel2.add(btBrowse);
+        btBrowse.setBounds(197, 100, 80, 29);
+        jPanel2.add(jSeparator1);
+        jSeparator1.setBounds(10, 40, 380, 10);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfFileName, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btBrowse)
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfFileName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBrowse, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(198, Short.MAX_VALUE))
-        );
+        lback.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/shortestpathwithturnrestrictions/images/ico.png"))); // NOI18N
+        lback.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jPanel2.add(lback);
+        lback.setBounds(0, 0, 400, 200);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
 
         pack();
@@ -154,6 +160,23 @@ public class MainUI extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
        
+         try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
@@ -167,6 +190,8 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lback;
     private javax.swing.JTextField tfFileName;
     // End of variables declaration//GEN-END:variables
 }

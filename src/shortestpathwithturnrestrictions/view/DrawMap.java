@@ -2,6 +2,7 @@ package shortestpathwithturnrestrictions.view;
 
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -14,7 +15,6 @@ import javax.swing.JFrame;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
-import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 
@@ -26,13 +26,14 @@ import javax.swing.SwingWorker;
 import javax.swing.event.MouseInputListener;
 import shortestpathwithturnrestrictions.action.ProcessData;
 import shortestpathwithturnrestrictions.model.RoadFragment;
+import shortestpathwithturnrestrictions.model.Turn;
 
 public class DrawMap extends JComponent implements MouseInputListener, MouseWheelListener {
 
     private Graphics2D graphicsObj;
     private ArrayList<RoadFragment> roads;
-    private double zoom = 1;
-    private double moveX=0.0, moveY=0.0, lastOffsetX=0.0, lastOffsetY=0.0;
+    private double zoom = 1.0;
+    private double moveX = 0.0, moveY = 0.0, lastOffsetX = 0.0, lastOffsetY = 0.0;
     private ArrayList<Ellipse2D> vertexNodes;
     private ArrayList<Long> vertexIds;
     private Image sourceMarker, destinationMarker, turnRestrictionMarker;
@@ -40,42 +41,44 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
     private ArrayList<Integer> shortestPath = null;
     private int sourceVertex = -1;
     private int destinationVertex = -1;
+    private int incomingVertex=-1, turnVertex=-1, outgoingVertex=-1;
     SwingWorker<String[], Void> pathComputer;
     private boolean pathCalculationDone = false;
     private Set<Integer> turns;
-    private int prevPoint=-1;
+    private int prevPoint = -1;
+
     public DrawMap(ArrayList<RoadFragment> roads, ProcessData dataProcessor) {
         // TODO Auto-generated constructor stub
         this.roads = roads;
         this.addMouseWheelListener(this);
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
-      
+
         this.dataProcessor = dataProcessor;
     }
 
     @Override
     public void paint(Graphics g) {
-     //   super.paint(g);
+        //   super.paint(g);
 
         graphicsObj = (Graphics2D) g;
-        graphicsObj.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
-	graphicsObj.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        graphicsObj.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        graphicsObj.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         graphicsObj.setColor(Color.WHITE);
-	graphicsObj.fillRect(0, 0, getWidth(), getHeight());
+        graphicsObj.fillRect(0, 0, getWidth(), getHeight());
         graphicsObj.setColor(Color.ORANGE);
-        graphicsObj.setStroke(new BasicStroke(2f));
+        graphicsObj.setStroke(new BasicStroke(2.0f));
         graphicsObj.setFont(new Font(Font.MONOSPACED, Font.BOLD, 10));
-    
+
         graphicsObj.scale(zoom, zoom);
         graphicsObj.translate(moveX, moveY);
-        
+
         int nodeNo = 0;
 
         for (RoadFragment road : roads) {
             graphicsObj.drawPolyline(road.getX(), road.getY(), road.getX().length);
             nodeNo++;
-       //          graphicsObj.drawString(""+(int)(road.getCostObj().getFizedCost()*100), road.getX()[road.getX().length-1]+10, road.getY()[road.getX().length-1]+5);
+            //          graphicsObj.drawString(""+(int)(road.getCostObj().getFizedCost()*100), road.getX()[road.getX().length-1]+10, road.getY()[road.getX().length-1]+5);
             graphicsObj.setColor(new Color((47 * nodeNo) % 255, (3 * nodeNo * nodeNo) % 255, (73 * nodeNo) % 255));
         }
 
@@ -112,9 +115,19 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
 
             graphicsObj.setColor(Color.black);
             graphicsObj.drawString("" + i, (float) vertexNodes.get(i).getMaxX(), (float) vertexNodes.get(i).getMinY());
+            
+           
         }
 
-
+         if(incomingVertex!=-1)
+                    graphicsObj.drawString("I", (float) vertexNodes.get(incomingVertex).getMinX(), (float) vertexNodes.get(incomingVertex).getMinY());
+            
+         if(turnVertex!=-1)
+                     graphicsObj.drawString("T", (float) vertexNodes.get(turnVertex).getMinX(), (float) vertexNodes.get(turnVertex).getMinY());
+            
+         if(outgoingVertex!=-1)
+              graphicsObj.drawString("O", (float) vertexNodes.get(outgoingVertex).getMinX(), (float) vertexNodes.get(outgoingVertex).getMinY());
+            
 
 
 
@@ -130,20 +143,17 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
     public void draw() {
         JFrame frame = new JFrame("Selected Map");
 
-       frame.setBackground(Color.yellow);
-       frame.setLayout(new BorderLayout());
-       frame.getContentPane().add(this, BorderLayout.CENTER);
-		
+        frame.setBackground(Color.yellow);
+        frame.setLayout(new CardLayout());
+        frame.getContentPane().add(this);
+
         frame.setSize(800, 600);
 
-      //  frame.add(this);
+        //  frame.add(this);
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        // this.setBorder(new BevelBorder(BevelBorder.RAISED));
- //       moveX = this.getWidth() / 2;
-   //     moveY = this.getHeight() / 2;
 
         init();
     }
@@ -167,9 +177,9 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
         }
         vertexIds.clear();
 
-        sourceMarker = Toolkit.getDefaultToolkit().getImage("sourceMarker.gif");
-        destinationMarker = Toolkit.getDefaultToolkit().getImage("destinationMarker.gif");
-        turnRestrictionMarker = Toolkit.getDefaultToolkit().getImage("turnRestrictionMarker.gif");
+        sourceMarker = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/shortestpathwithturnrestrictions/images/sourceMarker.gif"));
+        destinationMarker = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/shortestpathwithturnrestrictions/images/destinationMarker.gif"));
+        turnRestrictionMarker = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/shortestpathwithturnrestrictions/images/turnRestrictionMarker.gif"));
 
         /**
          * SwingWorker instance to run a compute-intensive task Final result is
@@ -209,10 +219,12 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
 
     @Override
     public void mouseClicked(MouseEvent e) {
+
+
         int i = 0;
         boolean pointSelected = false;
-        
-                        
+
+
         Rectangle2D rect;
         //   System.out.println("Mouse Clicked at:" + e.getX() + "," + e.getY());
         while (i < vertexNodes.size()) {
@@ -230,40 +242,67 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
         }
 
         if (pointSelected) {
-            System.out.println(i + "th Point selected.");
-            if (sourceVertex == i) {
-                sourceVertex = -1;
-                shortestPath = null;
-            } else if (sourceVertex != -1) {
-                if (destinationVertex != i && destinationVertex != sourceVertex) {
-                    destinationVertex = i;
+            if (e.getButton() == MouseEvent.BUTTON1) {
+                System.out.println(i + "th Point selected.");
+                if (sourceVertex == i) {
+                    sourceVertex = -1;
+                    shortestPath = null;
+                } else if (sourceVertex != -1) {
+                    if (destinationVertex != i && destinationVertex != sourceVertex) {
+                        destinationVertex = i;
+                    } else {
+                        destinationVertex = -1;
+                        shortestPath = null;
+                    }
+                } else if (destinationVertex != i) {
+                    sourceVertex = i;
                 } else {
                     destinationVertex = -1;
+                }
+
+                if (sourceVertex != -1 && destinationVertex != -1) {
+                    // shortestPathStr= dataProcessor.calculateShortestPath(sourceVertex, destinationVertex);
+                    if (pathCalculationDone) {
+                        decodePath(dataProcessor.calculateShortestPath(sourceVertex, destinationVertex));
+                    } else {
+                        pathComputer.execute();
+                    }
+                } else {
                     shortestPath = null;
                 }
-            } else if (destinationVertex != i) {
-                sourceVertex = i;
-            } else {
-                destinationVertex = -1;
-            }
-
-            if (sourceVertex != -1 && destinationVertex != -1) {
-                // shortestPathStr= dataProcessor.calculateShortestPath(sourceVertex, destinationVertex);
-                if (pathCalculationDone) {
-                    decodePath(dataProcessor.calculateShortestPath(sourceVertex, destinationVertex));
-                } else {
-                    pathComputer.execute();
+            } else if (e.getButton() == MouseEvent.BUTTON3) {
+                System.out.println("turn setup");
+                
+                if(turns.contains(i)){
+                dataProcessor.getgModel().getTurnRestrictions().remove(i);
+                turns = dataProcessor.getgModel().getTurnRestrictions().keySet();
+                shortestPath=null;
                 }
-            } else {
-                shortestPath = null;
+                else if(i==incomingVertex)
+                    incomingVertex=-1;
+                else if(i==outgoingVertex)
+                    outgoingVertex=-1;
+                else if(i==turnVertex)
+                    turnVertex=-1;
+                else if(incomingVertex==-1)
+                    incomingVertex=i;
+                else if(turnVertex==-1)
+                    turnVertex=i;
+                else
+                    outgoingVertex=i;
+                if(turnVertex!=-1 && incomingVertex!=-1 && outgoingVertex!=-1){
+                dataProcessor.getgModel().getTurnRestrictions().put(turnVertex, new Turn(incomingVertex, outgoingVertex, null));
+                turns = dataProcessor.getgModel().getTurnRestrictions().keySet();
+                turnVertex = -1;
+                incomingVertex = -1;
+                outgoingVertex =-1;
+                shortestPath=null;
+                }
             }
-
+            
+            
             repaint();
-
-        } else {
-            System.out.println("No point selected.");
         }
-
 
 
     }
@@ -293,11 +332,11 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
-         lastOffsetX = e.getX();
-	lastOffsetY = e.getY();
-       
-        
+
+        lastOffsetX = e.getX();
+        lastOffsetY = e.getY();
+
+
     }
 
     @Override
@@ -331,9 +370,9 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        
+
         int i = 0;
-       
+
         Rectangle2D rect;
         //   System.out.println("Mouse Clicked at:" + e.getX() + "," + e.getY());
         while (i < vertexNodes.size()) {
@@ -343,10 +382,10 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
 
             //  System.out.println("Point " + i + ":" + rect.getMinX() + "," + rect.getMaxX());
             if (rect.contains(e.getX(), e.getY())) {
-                if(prevPoint!=i){
-                ((JFrame)getTopLevelAncestor()).setTitle("Selected Point:"+i);
-               // System.out.println(i + "th Point.");
-                prevPoint=i;
+                if (prevPoint != i) {
+                    ((JFrame) getTopLevelAncestor()).setTitle("Selected Point:" + i);
+                    // System.out.println(i + "th Point.");
+                    prevPoint = i;
                 }
                 break;
             }
@@ -354,7 +393,7 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
             i++;
         }
 
-                
+
     }
 
     @Override
@@ -367,6 +406,4 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
         }
         repaint();
     }
-
-  
 }
