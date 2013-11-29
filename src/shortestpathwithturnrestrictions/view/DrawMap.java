@@ -276,11 +276,16 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
                 if(turns.contains(i)){
                 dataProcessor.getgModel().getTurnRestrictions().remove(i);
                 turns = dataProcessor.getgModel().getTurnRestrictions().keySet();
-                 if (pathCalculationDone) {
+                 if (sourceVertex != -1 && destinationVertex != -1) {
+                    // shortestPathStr= dataProcessor.calculateShortestPath(sourceVertex, destinationVertex);
+                    if (pathCalculationDone) {
                         decodePath(dataProcessor.calculateShortestPath(sourceVertex, destinationVertex));
                     } else {
                         pathComputer.execute();
                     }
+                } else {
+                    shortestPath = null;
+                }
                 }
                 else if(i==incomingVertex)
                     incomingVertex=-1;
@@ -300,11 +305,16 @@ public class DrawMap extends JComponent implements MouseInputListener, MouseWhee
                 turnVertex = -1;
                 incomingVertex = -1;
                 outgoingVertex =-1;
-                 if (pathCalculationDone) {
+                 if (sourceVertex != -1 && destinationVertex != -1) {
+                    // shortestPathStr= dataProcessor.calculateShortestPath(sourceVertex, destinationVertex);
+                    if (pathCalculationDone) {
                         decodePath(dataProcessor.calculateShortestPath(sourceVertex, destinationVertex));
                     } else {
                         pathComputer.execute();
                     }
+                } else {
+                    shortestPath = null;
+                }
                 }
             }
             
